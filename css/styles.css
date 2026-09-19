@@ -92,6 +92,8 @@ html.a11y-contrast {
 
 html.a11y-underline a { text-decoration: underline; text-underline-offset: 0.25em; }
 
+/* html itself is listed too: smooth scrolling is declared on the root element. */
+html.a11y-motion,
 html.a11y-motion *,
 html.a11y-motion *::before,
 html.a11y-motion *::after {
