@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accessibility statement - ORIA LEFKADA</title>
+    <meta name="description" content="How the ORIA LEFKADA website supports visitors with disabilities, the standard it follows, and how to report a problem.">
+    <link rel="canonical" href="https://www.orialefkada.gr/accessibility.html">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#FAF7F2">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Runs before first paint: marks JS as available and restores saved accessibility options. -->
+    <script>
+        (function (root) {
+            root.classList.add('js');
+            try {
+                var saved = JSON.parse(localStorage.getItem('oria-a11y') || '{}');
+                ['text', 'contrast', 'underline', 'motion'].forEach(function (key) {
+                    if (saved[key] === true) { root.classList.add('a11y-' + key); }
+                });
+            } catch (e) { /* storage unavailable: defaults apply */ }
+        })(document.documentElement);
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="wordmark" href="index.html">ORIA LEFKADA</a>
+
+            <nav class="site-nav" aria-label="Primary">
+                <button type="button" class="header-button nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+                    <span class="nav-toggle__label">Menu</span>
+                    <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+                </button>
+                <ul class="nav-menu" id="primary-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#gallery">Gallery</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Accessibility options -->
+            <button type="button" class="header-button a11y-toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9.5"/>
+                    <circle cx="12" cy="7.25" r="1.1"/>
+                    <path d="M7 10.25h10M12 10.25v4.5M12 14.75l-2.5 4M12 14.75l2.5 4"/>
+                </svg>
+                <span class="a11y-toggle__label">Accessibility</span>
+            </button>
+            <div class="a11y-panel" id="a11y-panel" role="group" aria-labelledby="a11y-panel-title" hidden>
+                <p class="a11y-panel__title" id="a11y-panel-title">Accessibility options</p>
+                <ul class="a11y-options" role="list">
+                    <li><button type="button" class="a11y-option" data-a11y="text" aria-pressed="false">Larger text <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    <li><button type="button" class="a11y-option" data-a11y="contrast" aria-pressed="false">High contrast <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    <li><button type="button" class="a11y-option" data-a11y="underline" aria-pressed="false">Underline links <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    <li><button type="button" class="a11y-option" data-a11y="motion" aria-pressed="false">Stop animations <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                </ul>
+                <div class="a11y-panel__foot">
+                    <button type="button" class="a11y-reset" id="a11y-reset">Reset all</button>
+                    <a href="accessibility.html" aria-current="page">Accessibility statement</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+        <div class="container page">
+            <h1 class="page__title">Accessibility statement</h1>
+
+            <div class="prose">
+                <p>ORIA LEFKADA wants everyone to be able to use this website, including people who rely on a screen reader, keyboard-only navigation, screen magnification, voice control or their own colour and text settings.</p>
+
+                <h2>Standard we follow</h2>
+                <p>This website has been designed and built to conform to the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1</a> at level AA.</p>
+
+                <h2>What we have done</h2>
+                <ul>
+                    <li>Every page has a clear structure of headings and landmarks, and a &ldquo;Skip to main content&rdquo; link.</li>
+                    <li>Everything can be operated with a keyboard alone, and the item that has focus is always clearly outlined.</li>
+                    <li>All photographs and images have a text description. Decorative icons are hidden from screen readers.</li>
+                    <li>Text and controls meet or exceed the required colour contrast of 4.5:1.</li>
+                    <li>Text can be enlarged to 200% and the pages work on screens as narrow as 320 pixels without sideways scrolling.</li>
+                    <li>Animation is minimal and is switched off automatically if your device asks for reduced motion. Nothing flashes, plays automatically or has a time limit.</li>
+                    <li>The photo gallery viewer works with a keyboard and screen reader: use Previous, Next and Close, the arrow keys, or Escape.</li>
+                    <li>The &ldquo;Accessibility&rdquo; button at the top of every page offers larger text, high contrast, underlined links and the option to stop animations. Your choices are remembered on your device.</li>
+                    <li>The website does not use cookies, tracking or third-party content.</li>
+                </ul>
+
+                <h2>Known limitations</h2>
+                <ul>
+                    <li>The website is currently available in English only.</li>
+                    <li>One gallery image is a computer-generated architectural visualisation rather than a photograph. It is labelled as such.</li>
+                </ul>
+
+                <h2>Feedback and contact</h2>
+                <p>If you have difficulty using any part of this website, or need information from it in a different format, please tell us and we will help:</p>
+                <ul>
+                    <li>Email: <a href="mailto:cohen.oded@gmail.com">cohen.oded@gmail.com</a></li>
+                    <li>Phone: <a href="tel:+972523330911">+972-52-3330911</a></li>
+                </ul>
+                <p>We aim to reply within 10 working days.</p>
+
+                <h2>How the website was assessed</h2>
+                <p>This statement was prepared on 19 September 2026. The website was assessed by self-evaluation, using automated testing with axe-core together with manual checks of keyboard operation, focus visibility, colour contrast, 200% text enlargement, 320-pixel reflow and reduced-motion behaviour.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>&copy; 2024 ORIA LEFKADA. All rights reserved. | Experience the beauty of Greek islands.</p>
+            <a href="accessibility.html" aria-current="page">Accessibility statement</a>
+            <!-- REGISTRATION NUMBER SLOT — keep in sync with index.html (see the comment there). -->
+            <p class="legal-id" hidden><span lang="el">ΜΗ.Τ.Ε.</span> 0000000000000</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
