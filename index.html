@@ -2,468 +2,432 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ORIA LEFKADA - Your Dream Greek Island Getaway</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description" content="Experience the beauty and tranquility of Lefkada, one of Greece's most stunning islands. Our property offers the perfect blend of traditional Greek charm and modern comfort.">
+    <link rel="canonical" href="https://www.orialefkada.gr/">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#FAF7F2">
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.orialefkada.gr/">
+    <meta property="og:title" content="ORIA LEFKADA - Your Dream Greek Island Getaway">
+    <meta property="og:description" content="Discover Paradise in the Heart of the Ionian Sea">
+    <meta property="og:image" content="https://www.orialefkada.gr/images/villa-pool-terrace-sunset-1200.jpg">
+    <meta property="og:image:alt" content="Two-storey stone villa at sunset with a covered lounge, daybeds under a fringed parasol and the pool terrace.">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/styles.css">
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #2980b9, #3498db);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/Image1.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 80px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        .cta-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0;
-        }
-
-        .gallery h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .feature-card p {
-            color: #666;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #2980b9, #3498db);
-            color: white;
-        }
-
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .contact-item {
-            padding: 2rem;
-        }
-
-        .contact-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item p {
-            font-size: 1.1rem;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <!-- Runs before first paint: marks JS as available and restores saved accessibility options. -->
+    <script>
+        (function (root) {
+            root.classList.add('js');
+            try {
+                var saved = JSON.parse(localStorage.getItem('oria-a11y') || '{}');
+                ['text', 'contrast', 'underline', 'motion'].forEach(function (key) {
+                    if (saved[key] === true) { root.classList.add('a11y-' + key); }
+                });
+            } catch (e) { /* storage unavailable: defaults apply */ }
+        })(document.documentElement);
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">ORIA LEFKADA</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a class="wordmark" href="#home">ORIA LEFKADA</a>
+
+            <nav class="site-nav" aria-label="Primary">
+                <button type="button" class="header-button nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+                    <span class="nav-toggle__label">Menu</span>
+                    <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span></span>
+                </button>
+                <ul class="nav-menu" id="primary-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Accessibility options -->
+            <button type="button" class="header-button a11y-toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9.5"/>
+                    <circle cx="12" cy="7.25" r="1.1"/>
+                    <path d="M7 10.25h10M12 10.25v4.5M12 14.75l-2.5 4M12 14.75l2.5 4"/>
+                </svg>
+                <span class="a11y-toggle__label">Accessibility</span>
+            </button>
+            <div class="a11y-panel" id="a11y-panel" role="group" aria-labelledby="a11y-panel-title" hidden>
+                <p class="a11y-panel__title" id="a11y-panel-title">Accessibility options</p>
+                <ul class="a11y-options" role="list">
+                    <li><button type="button" class="a11y-option" data-a11y="text" aria-pressed="false">Larger text <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    <li><button type="button" class="a11y-option" data-a11y="contrast" aria-pressed="false">High contrast <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    <li><button type="button" class="a11y-option" data-a11y="underline" aria-pressed="false">Underline links <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    <li><button type="button" class="a11y-option" data-a11y="motion" aria-pressed="false">Stop animations <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                </ul>
+                <div class="a11y-panel__foot">
+                    <button type="button" class="a11y-reset" id="a11y-reset">Reset all</button>
+                    <a href="accessibility.html">Accessibility statement</a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>ORIA LEFKADA</h1>
-            <p>Discover Paradise in the Heart of the Ionian Sea</p>
-            <a href="#contact" class="cta-button">Book Your Stay</a>
-        </div>
-    </section>
+    <main id="main" tabindex="-1">
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Welcome to Your Greek Island Escape</h2>
-                    <p>Experience the beauty and tranquility of Lefkada, one of Greece's most stunning islands. Our property offers the perfect blend of traditional Greek charm and modern comfort.</p>
+        <!-- Hero Section -->
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div class="hero__content">
+                <h1 class="hero__title" id="hero-title">ORIA LEFKADA</h1>
+                <p class="hero__tagline">Discover Paradise in the Heart of the Ionian Sea</p>
+                <a href="#contact" class="button">Book Your Stay</a>
+            </div>
+            <div class="hero__media">
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/terrace-daybeds-sea-view-480.webp 480w, images/terrace-daybeds-sea-view-800.webp 800w, images/terrace-daybeds-sea-view-1152.webp 1152w"
+                            sizes="(min-width: 56em) 45vw, 100vw">
+                    <img src="images/terrace-daybeds-sea-view-800.jpg"
+                         srcset="images/terrace-daybeds-sea-view-480.jpg 480w, images/terrace-daybeds-sea-view-800.jpg 800w, images/terrace-daybeds-sea-view-1152.jpg 1152w"
+                         sizes="(min-width: 56em) 45vw, 100vw"
+                         width="1152" height="1536" fetchpriority="high" decoding="async"
+                         alt="View from the covered terrace across two daybeds and a fringed parasol to the infinity pool, the sea and distant islands.">
+                </picture>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about" aria-labelledby="about-title">
+            <div class="container about__grid">
+                <div class="about__text">
+                    <span class="eyebrow" aria-hidden="true">01</span>
+                    <h2 class="section-title" id="about-title">Welcome to Your Greek Island Escape</h2>
+                    <p class="lead">Experience the beauty and tranquility of Lefkada, one of Greece's most stunning islands. Our property offers the perfect blend of traditional Greek charm and modern comfort.</p>
                     <p>Located in the pristine waters of the Ionian Sea, Lefkada is renowned for its crystal-clear turquoise waters, dramatic white cliffs, and some of the most beautiful beaches in the Mediterranean.</p>
                     <p>Whether you're seeking relaxation, adventure, or cultural exploration, ORIA LEFKADA provides the perfect base for your unforgettable Greek island experience.</p>
                 </div>
-                <div class="about-image">
-                    <img src="images/Image2.jpg" alt="Beautiful view of Lefkada">
+                <div class="about__media">
+                    <div class="about__frame">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="images/entrance-door-sea-view-600.webp 600w, images/entrance-door-sea-view-900.webp 900w"
+                                    sizes="(min-width: 56em) 35vw, 90vw">
+                            <img src="images/entrance-door-sea-view-600.jpg"
+                                 srcset="images/entrance-door-sea-view-600.jpg 600w, images/entrance-door-sea-view-900.jpg 900w"
+                                 sizes="(min-width: 56em) 35vw, 90vw"
+                                 width="900" height="1125" loading="lazy" decoding="async"
+                                 alt="Stone entrance with a tall timber door standing ajar, framing a view straight through the villa to a parasol and the sea.">
+                        </picture>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2>Photo Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/Image3.jpg" alt="Property exterior">
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow" aria-hidden="true">02</span>
+                    <h2 class="section-title" id="gallery-title">Photo Gallery</h2>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/Image4.jpg" alt="Interior view">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Image5.jpg" alt="Beach view">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Image6.jpg" alt="Sunset view">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Image7.jpg" alt="Terrace area">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Image8.jpg" alt="Local attractions">
-                </div>
+                <!-- Each tile links to the full photo; js/main.js upgrades the links to open an in-page viewer. -->
+                <ul class="mosaic" role="list" id="gallery-list">
+                    <li class="tile tile--big">
+                        <a class="tile__link" href="images/sunken-lounge-infinity-pool-full.jpg" data-width="1117" data-height="1843">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/sunken-lounge-infinity-pool-480.webp 480w, images/sunken-lounge-infinity-pool-800.webp 800w, images/sunken-lounge-infinity-pool-1152.webp 1152w" sizes="(min-width: 48em) 50vw, 100vw">
+                                <img src="images/sunken-lounge-infinity-pool-800.jpg" srcset="images/sunken-lounge-infinity-pool-480.jpg 480w, images/sunken-lounge-infinity-pool-800.jpg 800w, images/sunken-lounge-infinity-pool-1152.jpg 1152w" sizes="(min-width: 48em) 50vw, 100vw"
+                                     width="800" height="999" loading="lazy" decoding="async"
+                                     alt="Sunken lounge with cushioned seating set into the infinity pool, overlooking olive trees, hills and the sea.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/sun-loungers-infinity-pool-full.jpg" data-width="1014" data-height="1741">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/sun-loungers-infinity-pool-480.webp 480w, images/sun-loungers-infinity-pool-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/sun-loungers-infinity-pool-480.jpg" srcset="images/sun-loungers-infinity-pool-480.jpg 480w, images/sun-loungers-infinity-pool-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Sun loungers under fringed parasols beside the infinity pool, facing the open sea and distant islands.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/infinity-pool-edge-sea-full.jpg" data-width="1071" data-height="1741">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/infinity-pool-edge-sea-480.webp 480w, images/infinity-pool-edge-sea-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/infinity-pool-edge-sea-480.jpg" srcset="images/infinity-pool-edge-sea-480.jpg 480w, images/infinity-pool-edge-sea-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="601" loading="lazy" decoding="async"
+                                     alt="Infinity pool edge merging with the blue sea and hazy islands under a clear sky.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/outdoor-dining-pergola-sea-view-full.jpg" data-width="900" data-height="1600">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/outdoor-dining-pergola-sea-view-480.webp 480w, images/outdoor-dining-pergola-sea-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/outdoor-dining-pergola-sea-view-480.jpg" srcset="images/outdoor-dining-pergola-sea-view-480.jpg 480w, images/outdoor-dining-pergola-sea-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Shaded outdoor dining table with carved wooden chairs under a reed pergola, looking across the pool to the sea.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/daybeds-parasol-island-view-full.jpg" data-width="1152" data-height="1679">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/daybeds-parasol-island-view-480.webp 480w, images/daybeds-parasol-island-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/daybeds-parasol-island-view-480.jpg" srcset="images/daybeds-parasol-island-view-480.jpg 480w, images/daybeds-parasol-island-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Daybeds with striped cushions under a fringed parasol, overlooking a bay, islands and distant mountains.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile tile--wide">
+                        <a class="tile__link" href="images/villa-pool-terrace-sunset-full.jpg" data-width="1600" data-height="1000">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/villa-pool-terrace-sunset-800.webp 800w, images/villa-pool-terrace-sunset-1200.webp 1200w, images/villa-pool-terrace-sunset-1600.webp 1600w" sizes="(min-width: 48em) 50vw, 100vw">
+                                <img src="images/villa-pool-terrace-sunset-800.jpg" srcset="images/villa-pool-terrace-sunset-800.jpg 800w, images/villa-pool-terrace-sunset-1200.jpg 1200w, images/villa-pool-terrace-sunset-1600.jpg 1600w" sizes="(min-width: 48em) 50vw, 100vw"
+                                     width="800" height="500" loading="lazy" decoding="async"
+                                     alt="Two-storey stone villa at sunset with a covered lounge, daybeds under a fringed parasol and the pool terrace.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/front-door-terrace-view-full.jpg" data-width="1152" data-height="2048">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/front-door-terrace-view-480.webp 480w, images/front-door-terrace-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/front-door-terrace-view-480.jpg" srcset="images/front-door-terrace-view-480.jpg 480w, images/front-door-terrace-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Open timber front door revealing the covered terrace lounge, a woven lantern and the sea beyond.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/stone-wing-pergola-seating-full.jpg" data-width="1152" data-height="1639">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/stone-wing-pergola-seating-480.webp 480w, images/stone-wing-pergola-seating-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/stone-wing-pergola-seating-480.jpg" srcset="images/stone-wing-pergola-seating-480.jpg 480w, images/stone-wing-pergola-seating-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Stone-walled wing with a timber pergola and two woven armchairs, olive trees behind.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/living-room-kitchen-pool-view-full.jpg" data-width="1152" data-height="1843">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/living-room-kitchen-pool-view-480.webp 480w, images/living-room-kitchen-pool-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/living-room-kitchen-pool-view-480.jpg" srcset="images/living-room-kitchen-pool-view-480.jpg 480w, images/living-room-kitchen-pool-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Open-plan living room with a cream sofa, woven armchairs and a stone column, the kitchen behind and the pool outside.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile">
+                        <a class="tile__link" href="images/living-room-tv-sea-view-full.jpg" data-width="1152" data-height="1536">
+                            <span class="visually-hidden">View larger photo: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/living-room-tv-sea-view-480.webp 480w, images/living-room-tv-sea-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
+                                <img src="images/living-room-tv-sea-view-480.jpg" srcset="images/living-room-tv-sea-view-480.jpg 480w, images/living-room-tv-sea-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
+                                     alt="Living room with a cream sofa, a wall-mounted TV on a stone wall and sliding glass doors to the pool and sea.">
+                            </picture>
+                        </a>
+                    </li>
+                    <li class="tile tile--wide">
+                        <a class="tile__link" href="images/villa-aerial-visualisation-full.jpg" data-width="1600" data-height="1000">
+                            <span class="visually-hidden">View larger image: </span>
+                            <picture>
+                                <source type="image/webp" srcset="images/villa-aerial-visualisation-800.webp 800w, images/villa-aerial-visualisation-1200.webp 1200w, images/villa-aerial-visualisation-1600.webp 1600w" sizes="(min-width: 48em) 50vw, 100vw">
+                                <img src="images/villa-aerial-visualisation-800.jpg" srcset="images/villa-aerial-visualisation-800.jpg 800w, images/villa-aerial-visualisation-1200.jpg 1200w, images/villa-aerial-visualisation-1600.jpg 1600w" sizes="(min-width: 48em) 50vw, 100vw"
+                                     width="800" height="500" loading="lazy" decoding="async"
+                                     alt="Computer-generated aerial view of the villa on its terraced hillside plot, with a pergola-covered carport, stone retaining walls, olive and cypress trees, and the pool terrace.">
+                            </picture>
+                            <span class="tile__tag">Architectural visualisation</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2>What We Offer</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏖️</div>
-                    <h3>Beach Access</h3>
-                    <p>Direct access to pristine beaches with crystal-clear waters perfect for swimming and relaxation.</p>
+        <!-- Features Section -->
+        <section id="features" class="features" aria-labelledby="features-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow" aria-hidden="true">03</span>
+                    <h2 class="section-title" id="features-title">What We Offer</h2>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏡</div>
-                    <h3>Comfortable Accommodation</h3>
-                    <p>Modern amenities combined with traditional Greek architecture for a unique and comfortable stay.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌅</div>
-                    <h3>Stunning Views</h3>
-                    <p>Wake up to breathtaking sunrise views over the Ionian Sea from your private terrace.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚗</div>
-                    <h3>Prime Location</h3>
-                    <p>Centrally located with easy access to local attractions, restaurants, and activities.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🍽️</div>
-                    <h3>Local Cuisine</h3>
-                    <p>Experience authentic Greek cuisine at nearby tavernas and restaurants.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⛵</div>
-                    <h3>Water Activities</h3>
-                    <p>Enjoy sailing, windsurfing, diving, and other water sports in the beautiful Ionian waters.</p>
-                </div>
+                <ul class="offer-list" role="list">
+                    <li class="offer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 12.5a9 9 0 0 1 18 0z"/>
+                            <path d="M12 3.5v-1M12 12.5V19"/>
+                            <path d="M3 21c1.5-1.1 3-1.1 4.5 0s3 1.1 4.5 0 3-1.1 4.5 0 3 1.1 4.5 0"/>
+                        </svg>
+                        <h3>Beach Access</h3>
+                        <p>Direct access to pristine beaches with crystal-clear waters perfect for swimming and relaxation.</p>
+                    </li>
+                    <li class="offer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 11.5 12 4l9 7.5"/>
+                            <path d="M5.5 9.5V20h13V9.5"/>
+                            <path d="M10 20v-5.5h4V20"/>
+                        </svg>
+                        <h3>Comfortable Accommodation</h3>
+                        <p>Modern amenities combined with traditional Greek architecture for a unique and comfortable stay.</p>
+                    </li>
+                    <li class="offer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M2 17.5h20"/>
+                            <path d="M6.5 17.5a5.5 5.5 0 0 1 11 0"/>
+                            <path d="M12 5.5v3M4.4 9.9l2.1 2.1M19.6 9.9l-2.1 2.1"/>
+                            <path d="M7 21h10"/>
+                        </svg>
+                        <h3>Stunning Views</h3>
+                        <p>Wake up to breathtaking sunrise views over the Ionian Sea from your private terrace.</p>
+                    </li>
+                    <li class="offer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 21.5s-6.5-5.8-6.5-10.9a6.5 6.5 0 0 1 13 0c0 5.1-6.5 10.9-6.5 10.9z"/>
+                            <circle cx="12" cy="10.5" r="2.25"/>
+                        </svg>
+                        <h3>Prime Location</h3>
+                        <p>Centrally located with easy access to local attractions, restaurants, and activities.</p>
+                    </li>
+                    <li class="offer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M5 3v4.5a2.5 2.5 0 0 0 5 0V3M7.5 3v18"/>
+                            <path d="M17.5 21V3c-2 1.3-3 3.7-3 6.5V13h3"/>
+                        </svg>
+                        <h3>Local Cuisine</h3>
+                        <p>Experience authentic Greek cuisine at nearby tavernas and restaurants.</p>
+                    </li>
+                    <li class="offer">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M11.5 2.5v14"/>
+                            <path d="M13.5 5l6 11.5h-6z"/>
+                            <path d="M9.5 8l-4.5 8.5h4.5z"/>
+                            <path d="M3 18.5h18l-2.2 3H5.2z"/>
+                        </svg>
+                        <h3>Water Activities</h3>
+                        <p>Enjoy sailing, windsurfing, diving, and other water sports in the beautiful Ionian waters.</p>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-item">
-                    <h3>📧 Email</h3>
-                    <p><a href="mailto:cohen.oded@gmail.com">cohen.oded@gmail.com</a></p>
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow" aria-hidden="true">04</span>
+                    <h2 class="section-title" id="contact-title">Get In Touch</h2>
                 </div>
-                <div class="contact-item">
-                    <h3>📱 Phone</h3>
-                    <p><a href="tel:+972523330911">+972-52-3330911</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>🌐 Website</h3>
-                    <p><a href="https://orialefkada.gr">orialefkada.gr</a></p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <rect x="3" y="5.5" width="18" height="13"/>
+                                <path d="M3.5 6.5 12 13l8.5-6.5"/>
+                            </svg>
+                            Email
+                        </h3>
+                        <p><a href="mailto:cohen.oded@gmail.com">cohen.oded@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <rect x="7" y="2.5" width="10" height="19" rx="1.5"/>
+                                <path d="M11 18.5h2"/>
+                            </svg>
+                            Phone
+                        </h3>
+                        <p><a href="tel:+972523330911">+972-52-3330911</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M3 12h18"/>
+                                <path d="M12 3c2.7 2.6 4 5.6 4 9s-1.3 6.4-4 9c-2.7-2.6-4-5.6-4-9s1.3-6.4 4-9z"/>
+                            </svg>
+                            Website
+                        </h3>
+                        <p><a href="https://orialefkada.gr">orialefkada.gr</a></p>
+                    </div>
                 </div>
             </div>
+        </section>
+
+    </main>
+
+    <!--
+        FUNDING BANNER SLOT — fill in once the programme's consultant supplies the assets.
+        1. Save the banner as images/funding-banner-en.jpg and the project PDF as docs/funding-en.pdf
+        2. Remove this comment wrapper (keep the <aside>), and write the banner's wording into the alt text.
+
+    <aside class="funding" aria-label="Programme funding">
+        <div class="container">
+            <a href="docs/funding-en.pdf">
+                <img src="images/funding-banner-en.jpg" width="600" height="120"
+                     alt="[Replace with the exact wording shown on the banner] (PDF)">
+            </a>
         </div>
-    </section>
+    </aside>
+    -->
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
             <p>&copy; 2024 ORIA LEFKADA. All rights reserved. | Experience the beauty of Greek islands.</p>
+            <a href="accessibility.html">Accessibility statement</a>
+            <!--
+                REGISTRATION NUMBER SLOT — Greek law requires the ΜΗ.Τ.Ε. (or ΑΜΑ) number on the website.
+                Replace the label if needed and the zeros with the real number, then delete the word
+                "hidden" from the tag below. Do the same in accessibility.html.
+            -->
+            <p class="legal-id" hidden><span lang="el">ΜΗ.Τ.Ε.</span> 0000000000000</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <!-- Photo viewer, opened from the gallery by js/main.js -->
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+        <div class="lightbox__bar">
+            <p class="lightbox__count" id="lightbox-count" aria-live="polite" aria-atomic="true"></p>
+            <button type="button" class="lightbox__button" id="lightbox-close">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5L5 19"/></svg>
+                Close
+            </button>
+        </div>
+        <div class="lightbox__stage" id="lightbox-stage"></div>
+        <div class="lightbox__nav">
+            <button type="button" class="lightbox__button" id="lightbox-prev">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5l-7 7 7 7"/></svg>
+                Previous
+            </button>
+            <button type="button" class="lightbox__button" id="lightbox-next">
+                Next
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </dialog>
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(41, 128, 185, 0.95)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #2980b9, #3498db)';
-            }
-        });
-    </script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
