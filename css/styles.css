@@ -1,33 +1,120 @@
 /* ==========================================================================
-   ORIA LEFKADA — site styles
-   Target: WCAG 2.1 AA. Contrast ratios (WCAG relative luminance, computed):
-     ink    #22201C on cream      #FAF7F2 ... 15.2:1
-     ink    #22201C on cream-deep #F4EFE7 ... 14.2:1
-     muted  #5A554D on cream      #FAF7F2 ...  6.9:1
-     muted  #5A554D on cream-deep #F4EFE7 ...  6.5:1
-     accent #1F4E5F on cream      #FAF7F2 ...  8.5:1
-     cream  #FAF7F2 on accent     #1F4E5F ...  8.5:1
-     cream  #FAF7F2 on ink        #22201C ... 15.2:1
-   --rule (#DDD6CB) is decorative only; every control boundary uses --ink.
-   All sizes are rem/em so text scales with the browser and the
-   "Larger text" accessibility option.
+   ORIA LEFKADA — redesign prototype 4: "Earth Luxe"
+   Same layout and composition as prototype 1 (centred title block above a
+   triptych, frosted sticky header, strict even photo grid, clean feature
+   cells, solid contact band), re-materialised in the villa's own colours:
+   limestone paving, lime plaster, dry-stone walls, iroko timber, dark walnut
+   shadow, taupe linen and one metal (brass, dark surfaces only).
+
+   Design system source: ui-ux-pro-max — style "Nature Distilled" (muted earth,
+   natural ease-out easing, soft natural shadow), palette structure "Premium
+   dark + gold accent" (warm near-black + warm off-white + one metallic) with
+   the values replaced by colours sampled from the owner's photographs, type
+   pairing "Classic Elegant" (Playfair Display + Inter), dials: variance 2,
+   motion 2, density 2.
+
+   Target: WCAG 2.1 AA. Every colour pair used for text or for a control
+   boundary / focus ring is listed here with its COMPUTED ratio (WCAG relative
+   luminance). No texture, gradient, background image or overlay sits on or
+   behind any text; the only translucent surface is the frosted header, whose
+   worst case is computed below.
+
+   BANDS. The photographs sit on stone, the reading sections on the lighter ground:
+     header limestone (frosted) > hero SAND > about LIMESTONE > gallery SAND >
+     features LIMESTONE (plaster cells) > contact WALNUT > footer ESPRESSO.
+
+   TEXT PAIRS (need >= 4.5:1)                                          ratio
+     espresso    #2A1E14 on limestone #F6F1E7  body, nav, about lead,
+                                               about / offer h2 ....... 14.41
+     espresso    #2A1E14 on plaster   #FCFAF5  card h3, a11y panel .... 15.55
+     espresso    #2A1E14 on sand      #EDE3D2  h1, gallery h2,
+                                               control hover .......... 12.76
+     taupe       #5C4D3D on limestone #F6F1E7  about copy .............  7.22
+     taupe       #5C4D3D on plaster   #FCFAF5  card copy ..............  7.79
+     taupe       #5C4D3D on sand      #EDE3D2  tagline ................  6.39
+     timber      #8F5A2E on limestone #F6F1E7  section numerals (01,03)  5.08
+     timber      #8F5A2E on plaster   #FCFAF5  photo tag ..............  5.49
+     timber-deep #734621 on sand      #EDE3D2  section numeral (02) ...  6.29
+                 (timber on sand is only 4.50, so it is never used as text there)
+     timber-deep #734621 on plaster   #FCFAF5  panel link hover .......  7.66
+     plaster     #FCFAF5 on timber    #8F5A2E  CTA ....................  5.49
+     plaster     #FCFAF5 on timber-deep #734621 CTA hover ..............  7.66
+     espresso    #2A1E14 on placeholder #D8CBB6 alt text of a photo that
+                                               failed to load ......... 10.15
+     limestone   #F6F1E7 on walnut    #3A2718  contact title + links,
+                                               pressed / expanded
+                                               controls, CTA active,
+                                               skip link .............. 12.58
+     brass       #C9A66B on walnut    #3A2718  contact numeral, labels,
+                                               link hover .............  6.17
+     sand        #EDE3D2 on espresso  #2A1E14  footer copy ............ 12.76
+     limestone   #F6F1E7 on espresso  #2A1E14  footer link ............ 14.41
+     brass       #C9A66B on espresso  #2A1E14  footer link hover ......  7.07
+     limestone   #F6F1E7 on lightbox  #1A130D  photo viewer ........... 16.32
+     lightbox    #1A130D on limestone #F6F1E7  viewer button hover .... 16.32
+     limestone   #F6F1E7 on walnut    #3A2718  ::selection ............ 12.58
+     espresso    #2A1E14 on brass     #C9A66B  ::selection on dark ....  7.07
+
+   FROSTED HEADER (the only translucent surface). Limestone #F6F1E7 at 86%
+   alpha. Worst case is a pure black backdrop (composite #D4CFC7); any real
+   backdrop is lighter, so the ratio only goes up. Without backdrop-filter
+   support, with "High contrast" on, or with prefers-reduced-transparency the
+   header is fully solid limestone.
+     espresso #2A1E14 on worst-case composite (wordmark, nav, labels) .. 10.47
+     walnut   #3A2718 on worst-case composite (button edge, focus) ....  9.13
+     over the sand hero / gallery the glass composites to #F5EFE4:
+     espresso on it 14.18, walnut on it 12.37
+   Nav hover keeps the text colour and adds a timber underline (decoration
+   only), so no accent-coloured text ever sits on the glass.
+
+   NON-TEXT (need >= 3:1)
+     focus ring walnut #3A2718 on limestone 12.58 / plaster 13.57 / sand 11.14
+     focus ring brass  #C9A66B on walnut 6.17 / espresso 7.07 / lightbox 8.01
+     control borders walnut #3A2718 on limestone 12.58 / plaster 13.57 / sand 11.14
+     option borders  stone  #8A7A66 on plaster 3.98 (walnut on hover / pressed)
+     viewer button border brass #C9A66B on lightbox 8.01
+     CTA fill timber #8F5A2E against the sand hero 4.50
+     icons: timber #8F5A2E on plaster 5.49; brass #C9A66B on walnut 6.17
+
+   DECORATIVE ONLY (never text, never the sole boundary of a control)
+     rule      #D8CBB6  quiet hairlines (1.42 on limestone / 1.26 on sand)
+     placeholder #D8CBB6 ground behind a photo while it loads (own token, so that
+                        "High contrast" can turn it white while hairlines turn black)
+     drystone  #AD9A83  section-head rules (2.41 limestone / 2.14 sand) — a colour
+                        sampled from the villa's dry-stone walls
+     brass-dim #735A39  hairlines on the dark bands (2.19 on walnut)
+     timber    #8F5A2E  short rules and the single hero lozenge
+     limestone #F6F1E7  1px inset keyline drawn over photographs
+
+   HIGH-CONTRAST OPTION (html.a11y-contrast)
+     black #000000 on white #FFFFFF (all text, borders, hairlines, focus) 21.00
+     black alt text on the white photo placeholder ...................... 21.00
+     white on black (dark bands, pressed controls, skip link, viewer) ... 21.00
+     white on accent #4A2A0C (CTA; --on-accent follows --plaster = white) 12.90
+     accent #4A2A0C on white (numerals, tag, icons) ..................... 12.90
+     white on accent-deep #2B1705 (CTA hover; CTA active is white on black) 17.11
+     details #FFD27A on black (numeral, labels, rules, icons, focus) .... 14.75
+
+   All sizes are rem / em / clamp() so text scales with the browser and with
+   the "Larger text" option; every grid track is minmax(0, 1fr).
    ========================================================================== */
 
+/* ---------- Tokens ---------- */
 /* ---------- Fonts (self-hosted; SIL Open Font License) ---------- */
 @font-face {
-    font-family: "Cormorant Garamond";
+    font-family: "Playfair Display";
     font-style: normal;
     font-weight: 400 600;
     font-display: swap;
-    src: url("../fonts/cormorant-garamond-latin.woff2") format("woff2");
+    src: url("../fonts/playfair-display-latin.woff2") format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-    font-family: "Cormorant Garamond";
+    font-family: "Playfair Display";
     font-style: italic;
     font-weight: 400 500;
     font-display: swap;
-    src: url("../fonts/cormorant-garamond-italic-latin.woff2") format("woff2");
+    src: url("../fonts/playfair-display-italic-latin.woff2") format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
@@ -38,7 +125,7 @@
     src: url("../fonts/inter-latin.woff2") format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/* Only downloaded when Greek characters are on the page (e.g. the ΜΗ.Τ.Ε. number). */
+/* Only downloaded when Greek characters are on the page (e.g. the registration number). */
 @font-face {
     font-family: "Inter";
     font-style: normal;
@@ -48,51 +135,133 @@
     unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
 }
 
-/* ---------- Tokens ---------- */
 :root {
-    --cream: #FAF7F2;
-    --cream-deep: #F4EFE7;
-    --ink: #22201C;
-    --muted: #5A554D;
-    --accent: #1F4E5F;
-    --rule: #DDD6CB;
-    --on-accent-rule: rgba(250, 247, 242, 0.3);
+    /* Surfaces: limestone paving, lime plaster, sand */
+    --limestone: #F6F1E7;   /* page, reading sections (about, features), header */
+    --plaster: #FCFAF5;     /* cards, panels, photo tag, CTA label */
+    --sand: #EDE3D2;        /* the photo bands (hero, gallery), control hover */
 
-    /* Cormorant Garamond has no Greek glyphs: Georgia covers them if a Greek page is added. */
-    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    /* Text */
+    --espresso: #2A1E14;    /* headings + primary text; footer ground */
+    --taupe: #5C4D3D;       /* secondary text */
+
+    /* Structure */
+    --walnut: #3A2718;      /* dark band, pressed / expanded controls, control borders, focus */
+    --timber: #8F5A2E;      /* THE accent: CTA, key rules, small labels */
+    --timber-deep: #734621; /* CTA hover, accent text on sand, link hover on plaster */
+    --brass: #C9A66B;       /* the one metal: dark surfaces only */
+    --stone: #8A7A66;       /* quiet control boundary that still reaches 3:1 */
+
+    /* Decorative hairlines only */
+    --rule: #D8CBB6;
+    --drystone: #AD9A83;
+    --brass-dim: #735A39;
+
+    /* Ground behind a photograph while it loads. Its own token (not --rule): alt text is drawn on it
+       when an image fails, so "High contrast" must be able to turn it white while hairlines turn black. */
+    --placeholder: #D8CBB6;
+
+    --lightbox: #1A130D;
+    --on-accent: var(--plaster); /* warm white, not #FFF: 5.49 on timber, 7.66 on timber-deep */
+    --on-dark: #F6F1E7;
+    --on-dark-soft: #EDE3D2;
+    --glass: rgba(246, 241, 231, 0.86);
+
+    /* Small accent text: timber by default, switched to timber-deep on sand and to brass on walnut. */
+    --accent-text: var(--timber);
+    --index-rule: var(--drystone);
+
+    --focus: var(--walnut);
+    --focus-on-dark: var(--brass);
+
+    /* Type */
+    /* Playfair Display has no Greek glyphs: Georgia covers them if a Greek page is added. */
+    --serif: "Playfair Display", Georgia, "Times New Roman", Times, serif;
     --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-    --step-h1: clamp(2.75rem, 1.5rem + 4.2vw, 5.5rem);
-    --step-h2: clamp(2.25rem, 1.5rem + 2.6vw, 3.75rem);
-    --step-h3: clamp(1.5rem, 1.35rem + 0.5vw, 1.75rem);
-    --step-lead: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
-    --step-body: 1.125rem;
+    /* The phone end is flattened so the tracked wordmark always sets on one line with air
+       (26px at 320-360, 27.8px at 390); unchanged 68px cap from about 1107px. */
+    --step-h1: clamp(1.625rem, 0.375rem + 5.6vw, 4.25rem);
+    /* The title of a long-form text page: above --step-h2, below the hero h1 at every width
+       (32.6 / 47.8 / 56px against a hero h1 of 27.8 / 63.3 / 68px at 390 / 1024 / 1440). */
+    --step-h2-page: clamp(2rem, 1.45rem + 2.4vw, 3.5rem);
+    --step-h2: clamp(1.875rem, 1.3rem + 2.1vw, 3.125rem);
+    /* The subheads under such a title: 24 / 29.2 / 32px, a clear step below --step-h2-page. */
+    --step-h2-sub: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+    --step-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+    --step-lead: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+    --step-body: 1.0625rem;
     --step-label: 0.8125rem;
 
-    --gutter: clamp(1.25rem, 5vw, 4rem);
-    --section: clamp(5rem, 10vw, 9rem);
-    --container: 78rem;
+    /* Space: one spacious scale (8 / 16 / 24 / 32 / 48 / 64 / 96 / 128px) */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 3rem;
+    --space-6: 4rem;
+    --space-7: 6rem;
+    --space-8: 8rem;
+
+    --gutter: clamp(1.25rem, 4vw, 4rem);
+    --col-gap: clamp(1rem, 2vw, 1.5rem);
+    --section: clamp(var(--space-6), 10vw, var(--space-8));
+    --keyline-inset: clamp(0.5rem, 1vw, 0.75rem);
+    --container: 80rem;
     --header-h: 4.5rem;
     /* Actual header height; js/main.js keeps it in sync when the header wraps (zoom, large text). */
     --header-offset: var(--header-h);
+
+    /* Motion: subtle tier, micro-interactions only, natural ease-out */
+    --dur-fast: 180ms;
+    --dur: 220ms;
+    --dur-slow: 250ms;
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    /* One soft, warm shadow, used only under the two floating header panels. */
+    --shadow-panel: 0 1.25rem 2.5rem -1.5rem rgba(42, 30, 20, 0.32);
 }
 
 /* ---------- Accessibility options (set on <html> by js/main.js) ---------- */
 html.a11y-text { font-size: 125%; }
 
 html.a11y-contrast {
-    --cream: #FFFFFF;
-    --cream-deep: #FFFFFF;
-    --ink: #000000;
-    --muted: #000000;
-    --accent: #00303F;
+    --limestone: #FFFFFF;
+    --plaster: #FFFFFF;
+    --sand: #FFFFFF;
+    --espresso: #000000;
+    --taupe: #000000;
+    --walnut: #000000;
+    --timber: #4A2A0C;
+    --timber-deep: #2B1705;
+    --brass: #FFD27A;
+    --stone: #000000;
     --rule: #000000;
-    --on-accent-rule: #FFFFFF;
+    --placeholder: #FFFFFF;
+    --drystone: #000000;
+    --brass-dim: #FFD27A;
+    --lightbox: #000000;
+    --on-dark: #FFFFFF;
+    --on-dark-soft: #FFFFFF;
+    --glass: #FFFFFF;
+    --shadow-panel: none;
+}
+
+/* Set for a single frame by js/main.js while an option is being switched.
+   A colour that is mid-transition does not pick up a new custom-property value —
+   the element keeps its old colour indefinitely — which left the CTA stranded on
+   the wrong accent when High contrast was turned on or off. Suppressing
+   transitions for the switch itself makes every token take effect at once;
+   hover fades are unaffected because the class is gone by the next frame. */
+html.a11y-switching *,
+html.a11y-switching *::before,
+html.a11y-switching *::after {
+    transition: none !important;
 }
 
 html.a11y-underline a { text-decoration: underline; text-underline-offset: 0.25em; }
 
-/* html itself is listed too: smooth scrolling is declared on the root element. */
+/* html itself is in the list: smooth scrolling is set on the root, which "html.a11y-motion *" never matches. */
 html.a11y-motion,
 html.a11y-motion *,
 html.a11y-motion *::before,
@@ -109,7 +278,7 @@ html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     /* Keeps keyboard focus and anchor targets clear of the sticky header. */
-    scroll-padding-top: calc(var(--header-offset) + 1rem);
+    scroll-padding-top: calc(var(--header-offset, 4.5rem) + 1rem);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -118,12 +287,24 @@ html {
 
 body {
     margin: 0;
-    background: var(--cream);
-    color: var(--ink);
+    background: var(--limestone);
+    color: var(--espresso);
     font-family: var(--sans);
     font-size: var(--step-body);
     line-height: 1.7;
+    font-kerning: normal;
     -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--walnut);
+    color: var(--on-dark);
+}
+.contact ::selection,
+.site-footer ::selection,
+.lightbox ::selection {
+    background: var(--brass);
+    color: var(--espresso);
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -134,13 +315,18 @@ h1, h2, h3, p, ul, figure { margin: 0; }
 h1, h2, h3 {
     font-family: var(--serif);
     font-weight: 400;
-    line-height: 1.08;
+    line-height: 1.14;
+    color: var(--espresso);
     text-wrap: balance;
 }
+
+p { text-wrap: pretty; }
 
 a { color: inherit; }
 
 button { font: inherit; color: inherit; }
+
+a, button { touch-action: manipulation; }
 
 [hidden] { display: none !important; }
 
@@ -164,19 +350,20 @@ button { font: inherit; color: inherit; }
 .icon {
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.15;
+    stroke-width: 1.125;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 /* ---------- Focus ---------- */
 :focus-visible {
-    outline: 3px solid var(--accent);
+    outline: 3px solid var(--focus);
     outline-offset: 3px;
 }
 main:focus { outline: none; }
 .contact :focus-visible,
-.lightbox :focus-visible { outline-color: var(--cream); }
+.site-footer :focus-visible,
+.lightbox :focus-visible { outline-color: var(--focus-on-dark); }
 
 /* ---------- Skip link ---------- */
 .skip-link {
@@ -184,10 +371,13 @@ main:focus { outline: none; }
     left: var(--gutter);
     top: 0;
     z-index: 1100;
-    transform: translateY(-120%);
-    padding: 0.85rem 1.25rem;
-    background: var(--ink);
-    color: var(--cream);
+    transform: translateY(-130%);
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--walnut);
+    color: var(--on-dark);
     font-size: 1rem;
     font-weight: 500;
     text-decoration: underline;
@@ -195,60 +385,138 @@ main:focus { outline: none; }
 }
 .skip-link:focus { transform: translateY(0.5rem); }
 
-/* ---------- Shared editorial details ---------- */
-.eyebrow {
-    display: block;
-    margin-bottom: 1.5rem;
+/* ---------- Shared pieces ---------- */
+.section { padding-block: var(--section); }
+
+/* Stone courses: sand and limestone bands alternate down the page, each joint marked by a quiet hairline.
+   The photographs (hero, gallery) sit on sand, the tone of the villa's paving, so the earth is on the
+   first screen; the reading sections (about, features) fall back to the limestone body. */
+.hero,
+.gallery {
+    background: var(--sand);
+    --accent-text: var(--timber-deep);
+}
+.hero { border-bottom: 1px solid var(--rule); }
+.gallery { border-block: 1px solid var(--rule); }
+
+/* Ornament: hairline – lozenge – hairline. Used once, under the hero title. Decorative, aria-hidden in the markup. */
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--timber);
+}
+.ornament::before,
+.ornament::after {
+    content: "";
+    flex: none;
+    width: 2.5rem;
+    height: 1px;
+    background: currentColor;
+}
+.ornament span {
+    flex: none;
+    width: 0.375rem;
+    height: 0.375rem;
+    background: currentColor;
+    transform: rotate(45deg);
+}
+
+/* Section head: a hairline rule interrupted by a bare decorative numeral, centred serif title below.
+   The whole index is aria-hidden. */
+.section-head {
+    margin-bottom: clamp(var(--space-5), 6vw, 5rem);
+    text-align: center;
+}
+.section-head__index {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    color: var(--accent-text);
     font-size: var(--step-label);
     font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.22em;
-    color: var(--muted);
+    letter-spacing: 0.28em;
+    font-variant-numeric: tabular-nums lining-nums;
 }
+.section-head__index::before,
+.section-head__index::after {
+    content: "";
+    flex: 1 1 0;
+    height: 1px;
+    background: var(--index-rule);
+}
+/* The tracking leaves a trailing gap after the last numeral; pull the rule back to keep both gaps equal. */
+.section-head__index::after { margin-left: -0.28em; }
 
 .section-title {
+    max-width: 24ch;
+    margin: clamp(var(--space-4), 4vw, var(--space-5)) auto 0;
     font-size: var(--step-h2);
-    letter-spacing: -0.005em;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
 }
-.section-title::after {
-    content: "";
-    display: block;
-    width: 3.5rem;
-    height: 2px;
-    margin-top: clamp(1.25rem, 2.5vw, 2rem);
-    background: var(--accent);
-}
-
-.section-head { margin-bottom: clamp(2.5rem, 6vw, 4.5rem); }
 
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 3.25rem;
-    padding: 0.75rem 2.25rem;
-    border: 1px solid var(--ink);
-    background: var(--ink);
-    color: var(--cream);
+    min-height: 3rem;
+    /* max-width + wrapping keep the button inside its column under heavy text
+       zoom, where the fixed side padding would otherwise push it off-screen.
+       Neither takes effect at normal sizes, so the usual rendering is unchanged. */
+    max-width: 100%;
+    padding: 0.75rem 2.75rem;
+    overflow-wrap: anywhere;
+    border: 1px solid transparent; /* becomes visible in forced-colors mode */
+    border-radius: 0;
+    background: var(--timber);
+    color: var(--on-accent);
     font-size: var(--step-label);
-    font-weight: 600;
-    letter-spacing: 0.2em;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.22em;
+    text-indent: 0.22em; /* optical centring against the trailing tracking */
     text-transform: uppercase;
     text-decoration: none;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
-.button:hover {
-    background: transparent;
-    color: var(--ink);
-}
+.button:hover { background: var(--timber-deep); }
+.button:active { background: var(--walnut); color: var(--on-dark); }
 
-/* ---------- Header ---------- */
+/* ---------- Header: frosted limestone bar with a solid fallback ---------- */
 .site-header {
     position: relative;
     z-index: 1000;
-    background: var(--cream);
+    background: var(--limestone);
     border-bottom: 1px solid var(--rule);
 }
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .site-header {
+        background: var(--glass);
+        /* Blur only, no saturation boost: the sea photographs passing underneath must not tint the limestone bar. */
+        -webkit-backdrop-filter: blur(1.125rem);
+        backdrop-filter: blur(1.125rem);
+    }
+}
+@media (prefers-reduced-transparency: reduce) {
+    .site-header {
+        background: var(--limestone);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+}
+html.a11y-contrast .site-header {
+    background: var(--limestone);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+/* Brand and tools share the free space equally, which keeps the navigation on the page's centre line.
+   flex-wrap lets the bar fall onto two rows instead of overflowing (browser zoom, "Larger text"). */
 .site-header__inner {
     position: relative;
     display: flex;
@@ -257,16 +525,27 @@ main:focus { outline: none; }
     gap: 0.25rem 1rem;
     min-height: var(--header-h);
 }
+.site-header__brand {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: flex-start;
+}
+.site-header__tools {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: flex-end;
+}
+.site-nav { flex: 0 1 auto; }
 
 .wordmark {
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
-    margin-right: auto;
     font-family: var(--serif);
-    font-size: 1.375rem;
+    font-size: 1rem;
     font-weight: 500;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.22em;
+    color: var(--espresso);
     text-decoration: none;
     white-space: nowrap;
 }
@@ -274,7 +553,8 @@ main:focus { outline: none; }
 .nav-menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 clamp(1.25rem, 2.5vw, 2.5rem);
+    justify-content: center;
+    gap: 0 clamp(0.25rem, 1vw, 1rem);
     padding: 0;
     list-style: none;
 }
@@ -282,20 +562,19 @@ main:focus { outline: none; }
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
-    padding-inline: 0.125rem;
+    padding-inline: 0.375rem;
     font-size: var(--step-label);
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
-.nav-menu a:hover,
-.nav-menu a[aria-current="page"] {
-    color: var(--accent);
+/* Hover keeps the text colour and draws a timber underline (decoration only). */
+.nav-menu a:hover {
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.5em;
+    text-decoration-color: var(--timber);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.6em;
 }
 
 /* Header buttons: "Menu" (mobile) and "Accessibility". Only shown when JS can operate them. */
@@ -307,18 +586,27 @@ main:focus { outline: none; }
     min-width: 2.75rem;
     min-height: 2.75rem;
     padding: 0 0.875rem;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--walnut);
     border-radius: 0;
     background: transparent;
-    color: var(--ink);
+    color: var(--espresso);
     font: 500 var(--step-label)/1 var(--sans);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+/* Hover is a solid sand fill plus a heavier edge, only for pointers that really hover (no sticky state after a tap).
+   The walnut fill is reserved for the expanded state, so open and closed never look alike. */
+@media (hover: hover) {
+    .header-button:hover {
+        background: var(--sand);
+        box-shadow: inset 0 0 0 1px var(--walnut);
+    }
 }
 .header-button[aria-expanded="true"] {
-    background: var(--ink);
-    color: var(--cream);
+    background: var(--walnut);
+    color: var(--on-dark);
 }
 .header-button .icon { width: 1.25rem; height: 1.25rem; flex: none; }
 
@@ -335,7 +623,7 @@ main:focus { outline: none; }
     width: 100%;
     height: 1px;
     background: currentColor;
-    transition: transform 0.25s ease, top 0.25s ease;
+    transition: transform var(--dur) var(--ease-out), top var(--dur) var(--ease-out);
 }
 .nav-toggle__icon span:first-child { top: 0; }
 .nav-toggle__icon span:last-child { top: 100%; }
@@ -343,15 +631,41 @@ main:focus { outline: none; }
 .nav-toggle[aria-expanded="true"] .nav-toggle__icon span:first-child { transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"] .nav-toggle__icon span:last-child { transform: rotate(-45deg); }
 
-/* Desktop: header sticks; the accessibility button keeps its text label. */
+/* The accessibility button is an icon-only 44 x 44px square at every width, so a utility never outweighs the
+   wordmark or the navigation. Its label stays in the DOM: the accessible name is still "Accessibility". */
+.a11y-toggle { padding-inline: 0; }
+.a11y-toggle__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* Desktop navigation (same 48em switch that js/main.js listens for). */
 @media (min-width: 48em) {
     .site-header { position: sticky; top: 0; }
-    .site-header__inner { column-gap: clamp(1.25rem, 2.5vw, 2.5rem); }
+}
+@media (min-width: 64em) {
+    .site-header__inner { column-gap: 1.5rem; }
+    .wordmark { font-size: 1.125rem; letter-spacing: 0.24em; }
+    .nav-menu a { padding-inline: 0.5rem; }
+}
+/* From 72em there is room to open up the tracking and the gaps between the links. */
+@media (min-width: 72em) {
+    .wordmark { font-size: 1.1875rem; letter-spacing: 0.26em; }
+    .nav-menu { column-gap: 1.5rem; }
+    .nav-menu a,
+    .header-button { letter-spacing: 0.16em; }
 }
 
 /* Mobile: collapse the menu only when JS is available to reopen it. */
 @media (max-width: 47.9375em) {
-    .wordmark { font-size: 1.125rem; letter-spacing: 0.22em; }
+    :root { --header-h: 4rem; }
+    .site-header__inner { column-gap: 0.5rem; }
+    .site-header__tools { flex: 0 0 auto; margin-left: auto; }
     .js .site-header { position: sticky; top: 0; }
     .js .nav-toggle { display: inline-flex; }
     .js .nav-menu {
@@ -360,35 +674,28 @@ main:focus { outline: none; }
         top: 100%;
         left: 0;
         right: 0;
-        padding: 0.5rem var(--gutter) 1.75rem;
-        background: var(--cream);
-        border-bottom: 1px solid var(--ink);
+        max-height: calc(100vh - var(--header-offset));
+        max-height: calc(100dvh - var(--header-offset));
+        overflow-y: auto;
+        padding: 0.5rem var(--gutter) 1.5rem;
+        background: var(--limestone); /* solid: never see-through */
+        border-bottom: 1px solid var(--walnut);
+        box-shadow: var(--shadow-panel);
     }
     .js .nav-menu.is-open { display: block; }
     .js .nav-menu a {
         display: flex;
         min-height: 3.25rem;
+        padding-inline: 0;
         border-bottom: 1px solid var(--rule);
     }
     html:not(.js) .site-header__inner { padding-block: 0.75rem; }
-
-    /* Icon-only accessibility button; its accessible name stays "Accessibility". */
-    .a11y-toggle { padding-inline: 0; }
-    .a11y-toggle__label {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
-    }
+    html:not(.js) .nav-menu { justify-content: flex-start; }
 }
 
 /* Very narrow screens / heavy zoom: keep the header on one line where possible. */
-@media (max-width: 24.5em) {
-    .wordmark { font-size: 1rem; letter-spacing: 0.16em; }
-    .site-header__inner { column-gap: 0.5rem; }
+@media (max-width: 23em) {
+    .wordmark { letter-spacing: 0.14em; }
     .nav-toggle { padding-inline: 0; }
     .nav-toggle__label {
         position: absolute;
@@ -401,28 +708,34 @@ main:focus { outline: none; }
     }
 }
 
-/* ---------- Accessibility options panel ---------- */
+/* ---------- Accessibility options panel (always a solid plaster surface) ---------- */
 .a11y-panel {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 0.5rem);
     right: var(--gutter);
     z-index: 10;
-    width: min(22rem, calc(100vw - 2 * var(--gutter)));
-    padding: 1.5rem;
-    border: 1px solid var(--ink);
-    background: var(--cream);
+    width: min(22rem, 100% - 2 * var(--gutter));
+    max-height: calc(100vh - var(--header-offset) - 1.5rem);
+    max-height: calc(100dvh - var(--header-offset) - 1.5rem);
+    overflow-y: auto;
+    padding: 1.75rem 1.5rem 1.5rem;
+    border: 1px solid var(--walnut);
+    background: var(--plaster);
+    box-shadow: var(--shadow-panel);
     font-size: 1rem;
     line-height: 1.5;
 }
 .a11y-panel__title {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-2);
     font-family: var(--serif);
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: var(--espresso);
 }
 .a11y-options {
     display: grid;
-    gap: 0.5rem;
+    gap: var(--space-1);
     padding: 0;
     list-style: none;
 }
@@ -434,22 +747,30 @@ main:focus { outline: none; }
     width: 100%;
     min-height: 3rem;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--ink);
+    border: 1px solid var(--stone);
     border-radius: 0;
     background: transparent;
     text-align: left;
     cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+@media (hover: hover) {
+    .a11y-option:hover {
+        background: var(--sand);
+        border-color: var(--walnut);
+    }
 }
 .a11y-option__state {
     flex: none;
     font-size: var(--step-label);
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
 }
 .a11y-option[aria-pressed="true"] {
-    background: var(--ink);
-    color: var(--cream);
+    border-color: var(--walnut);
+    background: var(--walnut);
+    color: var(--on-dark);
 }
 .a11y-panel__foot {
     display: flex;
@@ -474,144 +795,197 @@ main:focus { outline: none; }
     min-height: 2.75rem;
     text-underline-offset: 0.25em;
 }
+.a11y-reset:hover,
+.a11y-panel__foot a:hover { color: var(--timber-deep); text-decoration-thickness: 2px; }
 
-/* ---------- Hero (split: text + tall photograph) ---------- */
+/* ---------- Hero: centred title block above a triptych, on the sand band ----------
+   The vertical rhythm is deliberately tight so the photographs start high on the first screen
+   (about 400px down at 1366-1440px wide, header included; about 326px on short laptop screens,
+   see the max-height block at the end of this section). */
 .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    border-bottom: 1px solid var(--rule);
+    padding-top: clamp(1.75rem, 3.2vw, var(--space-5));
+    padding-bottom: clamp(var(--space-5), 7vw, var(--space-7));
 }
-.hero__media {
-    order: -1; /* photo first on small screens; heading stays first in the DOM */
-    position: relative;
-    aspect-ratio: 4 / 5;
-    max-height: 72vh;
-    max-height: 72svh;
-    width: 100%;
-    overflow: hidden;
-    background: var(--rule);
-}
-.hero__media img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 42%;
-}
-.hero__content {
-    padding: clamp(2.5rem, 8vw, 4rem) var(--gutter) clamp(3rem, 9vw, 5rem);
+
+.hero__intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 .hero__title {
+    max-width: 100%;
+    /* Matches the tracking so the letters, not the trailing space, sit on the centre line. */
+    padding-left: 0.2em;
     font-size: var(--step-h1);
-    line-height: 1.04;
-    letter-spacing: 0.14em;
+    line-height: 1.1;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 }
-.hero__title::after {
-    content: "";
-    display: block;
-    width: 3.5rem;
-    height: 2px;
-    margin-top: clamp(1.5rem, 3vw, 2.25rem);
-    background: var(--accent);
-}
+.hero .ornament { margin-top: clamp(1rem, 1.8vw, 1.375rem); }
 .hero__tagline {
-    max-width: 24ch;
-    margin-top: clamp(1.25rem, 2.5vw, 2rem);
+    max-width: 30ch;
+    margin-top: clamp(0.875rem, 1.6vw, 1.25rem);
     font-family: var(--serif);
     font-style: italic;
     font-size: var(--step-lead);
-    line-height: 1.35;
-    color: var(--muted);
-}
-.hero .button { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
-
-@media (min-width: 56em) {
-    .hero {
-        grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
-        min-height: clamp(34rem, calc(100vh - var(--header-offset)), 58rem);
-        min-height: clamp(34rem, calc(100svh - var(--header-offset)), 58rem);
-    }
-    .hero__media {
-        order: 0;
-        aspect-ratio: auto;
-        max-height: none;
-        height: 100%;
-    }
-    .hero__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        /* Left edge lines up with the page container on wide screens. */
-        padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2));
-        padding-right: clamp(2rem, 5vw, 5rem);
-    }
-}
-
-/* ---------- About ---------- */
-.about { padding-block: var(--section); }
-.about__grid {
-    display: grid;
-    gap: clamp(3rem, 8vw, 4rem);
-}
-.about__text .section-title { margin-bottom: clamp(2rem, 4vw, 3rem); }
-.about__text p {
-    max-width: 60ch;
-    color: var(--muted);
-}
-.about__text p + p { margin-top: 1.5rem; }
-.about__text .lead {
-    max-width: 34ch;
-    font-family: var(--serif);
-    font-size: var(--step-lead);
     line-height: 1.4;
-    color: var(--ink);
+    color: var(--taupe);
+    text-wrap: balance;
 }
-.about__media {
+.hero .button { margin-top: 1.75rem; }
+
+/* Wide enough for the tagline to sit on one line under the title; it still wraps (balanced) when text is enlarged. */
+@media (min-width: 48em) {
+    .hero__tagline { max-width: 26em; }
+}
+
+/* Phones: two portraits over one wide sea band. DOM order = reading order at every size. */
+.hero__triptych {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--col-gap);
+    margin-top: clamp(var(--space-4), 3.5vw, var(--space-5));
+}
+.hero__panel {
     position: relative;
-    margin-left: 1rem;
-}
-.about__media::before {
-    content: "";
-    position: absolute;
-    inset: -1rem 1rem 1rem -1rem;
-    border: 1px solid var(--rule);
-}
-.about__frame {
-    position: relative;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
-    background: var(--rule);
+    background: var(--placeholder);
 }
-.about__frame img {
+.hero__panel img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-@media (min-width: 56em) {
-    .about__grid {
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 0 2rem;
-        align-items: start;
-    }
-    .about__text { grid-column: 1 / span 6; padding-top: 1.5rem; }
-    .about__media { grid-column: 8 / span 5; margin: 7rem 0 0; }
+.hero__panel--stone img { object-position: 60% 50%; }
+.hero__panel--main img { object-position: 50% 32%; }
+.hero__panel--sea {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+}
+.hero__panel--sea img { object-position: 50% 62%; }
+
+/* Passe-partout: a fine limestone keyline drawn just inside the frame of the feature photographs.
+   It sits over the image only (there is never text on a photograph) and takes no pointer events. */
+.hero__panel::after,
+.about__media::after {
+    content: "";
+    position: absolute;
+    inset: var(--keyline-inset);
+    border: 1px solid var(--limestone);
+    opacity: 0.85;
+    pointer-events: none;
+}
+/* Phones: the hero portraits are only about 165px wide, where an inset frame reads as fuss. */
+@media (max-width: 35.9375em) {
+    .hero__panel::after { display: none; }
 }
 
-/* ---------- Gallery mosaic ---------- */
-.gallery {
-    padding-block: var(--section);
-    border-top: 1px solid var(--rule);
+/* From 36em: a true triptych on the 12-column grid (3 + 6 + 3). The centre panel sets the row height.
+   Starting this early keeps the sea photo (largest source 800px) a narrow portrait panel on large
+   phones and tablets instead of stretching it across the full width. */
+@media (min-width: 36em) {
+    .hero__triptych { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .hero__panel {
+        grid-column: span 3;
+        aspect-ratio: auto;
+    }
+    .hero__panel--main {
+        grid-column: span 6;
+        aspect-ratio: 8 / 7;
+    }
+    .hero__panel--sea {
+        grid-column: span 3;
+        aspect-ratio: auto;
+    }
+    .hero__panel--sea img { object-position: 50% 50%; }
 }
-.mosaic {
+
+/* Short laptop screens (1366 x 768, 1440 x 900 minus browser chrome): compress the title block so the
+   photographs start about 326px down instead of 400px (header 73 + 24 + 61.6 + 16 + 6 + 12 + 33.6 + 24 + 44 + 32).
+   rem only, the CTA stays a 44px target, crops and aspect ratios are untouched. The 56px h1 is still above the
+   h2 (49.5px at 1366). Kept after every base hero rule so that it wins the cascade. */
+@media (min-width: 64em) and (max-height: 50em) {
+    .hero { padding-top: var(--space-3); }
+    .hero__title { font-size: 3.5rem; }
+    .hero .ornament { margin-top: var(--space-2); }
+    .hero__tagline { margin-top: 0.75rem; font-size: 1.5rem; }
+    .hero .button { margin-top: var(--space-3); min-height: 2.75rem; }
+    .hero__triptych { margin-top: var(--space-4); }
+}
+
+/* ---------- About ---------- */
+.about__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 3.5rem);
+}
+.about__media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: var(--placeholder);
+}
+.about__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about__text p {
+    max-width: 58ch;
+    line-height: 1.75;
+    color: var(--taupe);
+}
+.about__text p + p { margin-top: var(--space-3); }
+.about__text .lead {
+    max-width: 30ch;
+    font-family: var(--serif);
+    font-size: var(--step-lead);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    color: var(--espresso);
+}
+.about__text .lead::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 1px;
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    background: var(--timber);
+}
+.about__text .lead + p { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
+
+@media (min-width: 48em) {
+    .about__grid {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 0 var(--col-gap);
+        align-items: start;
+    }
+    .about__media {
+        grid-column: 1 / span 5;
+        aspect-ratio: 4 / 5;
+    }
+    .about__text { grid-column: 7 / span 6; }
+}
+/* Once the photograph is taller than the copy, centre the copy against it. */
+@media (min-width: 64em) {
+    .about__grid { align-items: center; }
+}
+
+/* ---------- Gallery: strict, even, captionless grid ----------
+   2 columns: five even rows of portraits, the render closes the grid at double width.
+   3 columns: three even rows, then portrait + double-width render.
+   4 columns: 4 / 1 + double-width sunset + 1 / 4: a perfect 4 x 3 block.           */
+.gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(0.5rem, 1.2vw, 1rem);
+    gap: var(--col-gap);
     padding: 0;
     list-style: none;
 }
@@ -619,14 +993,16 @@ main:focus { outline: none; }
     position: relative;
     aspect-ratio: 4 / 5;
 }
-.tile--big { grid-column: span 2; }
-.tile--wide { grid-column: span 2; aspect-ratio: 8 / 5; }
+.tile--render {
+    grid-column: span 2;
+    aspect-ratio: 8 / 5;
+}
 .tile__link {
     position: absolute;
     inset: 0;
     display: block;
     overflow: hidden;
-    background: var(--rule);
+    background: var(--placeholder);
 }
 .tile__link img {
     position: absolute;
@@ -634,28 +1010,76 @@ main:focus { outline: none; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform var(--dur-slow) var(--ease-out);
 }
+.tile--sunset .tile__link img { object-position: 56% 50%; }
+
+/* Hover / focus: the same fine keyline appears inside the photo (decorative feedback, on top of the focus ring). */
+.tile__link::after {
+    content: "";
+    position: absolute;
+    inset: var(--keyline-inset);
+    border: 1px solid var(--limestone);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur) var(--ease-out);
+}
+.tile__link:hover::after,
+.tile__link:focus-visible::after { opacity: 1; }
 @media (prefers-reduced-motion: no-preference) {
-    .tile__link:hover img { transform: scale(1.03); }
+    .tile__link:hover img { transform: scale(1.025); }
 }
+
+/* Solid plaster label, mounted on the keyline's corner: guarantees the ratio whatever the image behind it.
+   A deliberate two-line plaque at every grid width: 15em (195px) holds either word with room to spare
+   (the longer one, ARCHITECTURAL, needs about 140px + 30px padding) but never both (about 300px), so the
+   break always falls between the words; centred, so the spare width reads as even margins. */
 .tile__tag {
     position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 0.5rem 0.875rem;
-    background: var(--cream);
-    color: var(--ink);
+    left: var(--keyline-inset);
+    bottom: var(--keyline-inset);
+    z-index: 1;
+    max-width: min(15em, calc(100% - 2 * var(--keyline-inset)));
+    padding: 0.5625rem 0.875rem 0.5rem 1rem;
+    background: var(--plaster);
+    color: var(--timber);
     font-size: var(--step-label);
     font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: 0.12em;
+    line-height: 1.35;
+    letter-spacing: 0.18em;
+    text-align: center;
     text-transform: uppercase;
+    /* Last resort in a very narrow cell: the long word breaks inside its solid backing instead of being clipped. */
+    overflow-wrap: anywhere;
 }
+/* "Larger text": at 1024-1120px the render tile is a single 216px cell and the 125% label, inset on the keyline
+   with 0.18em tracking, needs about 210px of the 196px available, which would split ARCHITECTURAL mid-word.
+   Mount the label flush in the corner with tighter tracking and padding: about 188px needed, 216px available. */
+html.a11y-text .tile__tag {
+    left: 0;
+    bottom: 0;
+    max-width: min(15em, 100%);
+    padding-inline: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
 @media (min-width: 48em) {
-    .mosaic { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .tile--big { grid-row: span 2; aspect-ratio: auto; }
-    .tile--wide { aspect-ratio: auto; }
+    .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    /* Shares a row with a portrait tile, which sets the row height. */
+    .tile--render { aspect-ratio: auto; }
+}
+@media (min-width: 64em) {
+    .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .tile--sunset {
+        grid-column: span 2;
+        aspect-ratio: auto;
+    }
+    .tile--sunset .tile__link img { object-position: 50% 50%; }
+    .tile--render {
+        grid-column: span 1;
+        aspect-ratio: 4 / 5;
+    }
+    .tile--render .tile__link img { object-position: 72% 50%; }
 }
 
 /* ---------- Photo viewer (native <dialog>) ---------- */
@@ -670,31 +1094,38 @@ html:has(.lightbox[open]) { overflow: hidden; }
     margin: 0;
     padding: 0;
     border: 0;
-    background: #181613;
-    color: #FAF7F2;
+    background: var(--lightbox);
+    color: var(--on-dark);
 }
-.lightbox::backdrop { background: #181613; }
+/* Literal on purpose: older engines do not inherit custom properties into ::backdrop.
+   (The dialog is opaque and fills the viewport, so the backdrop is never seen anyway.) */
+.lightbox::backdrop { background: #1A130D; }
 .lightbox[open] {
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
 }
 .lightbox__bar {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.5rem 1rem;
     padding: 0.75rem var(--gutter);
+    border-bottom: 1px solid var(--brass-dim);
 }
 .lightbox__count {
-    font-size: 0.9375rem;
-    letter-spacing: 0.12em;
+    font-size: var(--step-label);
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums lining-nums;
 }
 .lightbox__stage {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 0;
-    padding-inline: var(--gutter);
+    padding: clamp(0.75rem, 2vw, 1.5rem) var(--gutter);
 }
 .lightbox__stage img {
     width: auto;
@@ -705,6 +1136,7 @@ html:has(.lightbox[open]) { overflow: hidden; }
 }
 .lightbox__nav {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     padding: 0.75rem var(--gutter) 1.25rem;
@@ -716,180 +1148,480 @@ html:has(.lightbox[open]) { overflow: hidden; }
     gap: 0.625rem;
     min-width: 3rem;
     min-height: 3rem;
-    padding: 0 1.125rem;
-    border: 1px solid #FAF7F2;
+    padding: 0 1.25rem;
+    border: 1px solid var(--brass);
     border-radius: 0;
     background: transparent;
-    color: #FAF7F2;
+    color: var(--on-dark);
     font: 500 var(--step-label)/1 var(--sans);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     cursor: pointer;
+    transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
-.lightbox__button:hover {
-    background: #FAF7F2;
-    color: #181613;
+@media (hover: hover) {
+    .lightbox__button:hover {
+        border-color: var(--on-dark);
+        background: var(--on-dark);
+        color: var(--lightbox);
+    }
+}
+/* Press feedback for every pointer type, touch included. */
+.lightbox__button:active {
+    border-color: var(--on-dark);
+    background: var(--on-dark);
+    color: var(--lightbox);
 }
 .lightbox__button .icon { width: 1.25rem; height: 1.25rem; flex: none; }
 
-/* ---------- What We Offer ---------- */
-.features {
-    padding-block: var(--section);
-    background: var(--cream-deep);
-}
-.offer-list {
+/* ---------- What We Offer: four plaster cells on the limestone band ----------
+   Plaster on limestone is only 1.08:1, so each cell is drawn by its hairline (rule, 1.42 on limestone)
+   and its timber top rule; the cells are not controls, so the edge is decorative. */
+.offer-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    column-gap: clamp(2rem, 4vw, 4rem);
+    gap: var(--col-gap);
     padding: 0;
     list-style: none;
-    border-bottom: 1px solid var(--rule);
 }
 .offer {
-    padding-block: 2.25rem 2.5rem;
-    border-top: 1px solid var(--rule);
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    padding-bottom: clamp(2.25rem, 3.5vw, 3rem);
+    border: 1px solid var(--rule);
+    border-top-color: var(--timber);
+    background: var(--plaster);
 }
 .offer .icon {
-    width: 2.25rem;
-    height: 2.25rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+    color: var(--timber);
 }
 .offer h3 {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.875rem;
     font-size: var(--step-h3);
-    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    /* Last resort under heavy text enlargement: a long word breaks rather than leaving the card.
+       No hyphens:auto, which would split "Accommodation" on phones even when it fits on its own line. */
+    overflow-wrap: break-word;
 }
 .offer p {
-    max-width: 42ch;
-    color: var(--muted);
+    max-width: 44ch;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--taupe);
 }
-/* Four items: two columns keeps the rows even (no orphan on a third column). */
-@media (min-width: 38em) {
-    .offer-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+html.a11y-contrast .offer { border-top-width: 2px; border-top-color: var(--espresso); }
+
+@media (min-width: 40em) {
+    .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Four across from 72em. Media-query ems ignore the "Larger text" option (125%), so with it on the
+   step moves out by the same factor (72em x 1.25 = 90em) and the longest heading word keeps fitting.
+   In the four-across row only "Comfortable Accommodation" runs to two lines, so every heading reserves
+   two lines there (2 x 1.25 line-height = 2.5em) and the four paragraphs start on one shared line. */
+@media (min-width: 72em) {
+    html:not(.a11y-text) .offer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    html:not(.a11y-text) .offer h3 { min-height: 2.5em; }
+}
+@media (min-width: 90em) {
+    html.a11y-text .offer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    html.a11y-text .offer h3 { min-height: 2.5em; }
 }
 
-/* ---------- Contact ---------- */
+/* ---------- Contact: solid walnut band, limestone text, brass details ---------- */
 .contact {
-    padding-block: var(--section);
-    background: var(--accent);
-    color: var(--cream);
+    padding-top: 0;
+    border-top: 1px solid var(--brass);
+    background: var(--walnut);
+    color: var(--on-dark);
+    --accent-text: var(--brass);
+    --index-rule: var(--brass-dim);
 }
-.contact .eyebrow { color: var(--cream); }
-.contact .section-title::after { background: var(--cream); }
+/* Thin double brass rule along the top of the band: the border above plus this in-flow strip
+   (a text-free block ahead of the content, not an overlay). */
+.contact::before {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-top: 0.25rem;
+    margin-bottom: calc(var(--section) - 0.25rem - 2px);
+    background: var(--brass);
+}
+.contact .section-title { color: var(--on-dark); }
+
+/* Exactly two states, never a 2 + 1 orphan: one centred column, or all three across.
+   As with the offer cards, the step moves out by 125% when "Larger text" is on (64em x 1.25 = 80em). */
 .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-5) var(--col-gap);
+    max-width: 40rem;
+    margin-inline: auto;
+    text-align: center;
 }
+@media (min-width: 64em) {
+    html:not(.a11y-text) .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: none;
+    }
+}
+@media (min-width: 80em) {
+    html.a11y-text .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: none;
+    }
+}
+/* No rule above each item: the brass is spent on the details themselves (icon, label, the large serif link),
+   not on more lines stacked over them. */
 .contact-item {
-    padding-block: 2rem;
-    border-top: 1px solid var(--on-accent-rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
 }
 .contact-item h3 {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: 1.25rem;
+    margin-bottom: 0.625rem;
+    padding-left: 0.26em;
     font-family: var(--sans);
     font-size: var(--step-label);
     font-weight: 500;
     line-height: 1.2;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.26em;
     text-transform: uppercase;
+    color: var(--brass);
 }
 .contact-item .icon {
     flex: none;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-left: -0.26em;
+    color: var(--brass);
 }
+.contact-item p { max-width: 100%; }
 .contact-item a {
-    display: inline-block;
-    padding-block: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    max-width: 100%;
     font-family: var(--serif);
-    font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+    /* The finale of the page: 22px on phones, 24.5px at the first three-column width (1024), 31-33px at
+       1366-1440. The email (about 10.7em) stays inside its column at every step: 262 of 295px at 1024,
+       351 of 410px at 1440, 235 of 280px at 320. */
+    font-size: clamp(1.375rem, 0.25rem + 2vw, 2.125rem);
+    font-variant-numeric: lining-nums;
     line-height: 1.3;
     text-decoration: underline;
+    text-decoration-color: var(--brass);
     text-decoration-thickness: 1px;
-    text-underline-offset: 0.3em;
+    text-underline-offset: 0.35em;
     overflow-wrap: anywhere;
+    transition: color var(--dur-fast) var(--ease-out);
 }
-.contact-item a:hover { text-decoration-thickness: 2px; }
-@media (min-width: 56em) {
-    .contact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .contact-item {
-        padding: 0.5rem 2.5rem 0.5rem 0;
-        border-top: 0;
-    }
-    .contact-item + .contact-item {
-        padding-left: 2.5rem;
-        border-left: 1px solid var(--on-accent-rule);
-    }
+/* "Larger text" keeps the source minimum (1.25rem = 25px): at 27.5px the email would no longer fit a 320px
+   screen on one line and would break mid-address. */
+html.a11y-text .contact-item a { font-size: clamp(1.25rem, 0.25rem + 2vw, 2.125rem); }
+.contact-item a:hover {
+    color: var(--brass);
+    text-decoration-thickness: 2px;
 }
 
 /* ---------- Funding banner (hidden until the programme assets are added) ---------- */
 .funding {
-    padding-block: 2rem;
+    padding-block: var(--space-4);
+    background: var(--plaster);
     border-top: 1px solid var(--rule);
+    text-align: center;
 }
 .funding a { display: inline-block; }
 .funding img { width: auto; max-height: 6rem; }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer: the espresso plinth under the walnut band ---------- */
 .site-footer {
-    padding-block: 2.5rem;
-    border-top: 1px solid var(--rule);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--brass-dim);
+    background: var(--espresso);
+    color: var(--on-dark-soft);
     font-size: 0.875rem;
     letter-spacing: 0.02em;
-    color: var(--muted);
 }
 .site-footer__inner {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem 2rem;
+    gap: var(--space-1) var(--space-4);
 }
 .site-footer a {
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
-    text-underline-offset: 0.25em;
+    color: var(--on-dark);
+    text-decoration-color: var(--brass);
+    text-underline-offset: 0.3em;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.site-footer a:hover { color: var(--brass); }
+/* The footer of the page you are already on: brass on espresso (7.07), with a heavier underline, so the
+   link is not advertising the current page. Colour is not the only signal — aria-current="page" carries it
+   programmatically. Deliberately no text-decoration here: at (0,2,1) this rule ties with html.a11y-underline a
+   and, coming later in the sheet, would win and silently disable the "Underline links" option. */
+.site-footer a[aria-current="page"] {
+    color: var(--brass);
+    text-decoration-thickness: 2px;
 }
 .legal-id { flex-basis: 100%; }
 
-/* ---------- Text pages (accessibility statement) ---------- */
-.page { padding-block: clamp(3.5rem, 8vw, 6rem) var(--section); }
-.page__title {
-    font-size: var(--step-h2);
+/* ---------- Long-form text pages (the accessibility statement, and anything like it) ----------
+   Built from the same vocabulary as the homepage sections, so a page of pure reading still reads
+   as this site: a centred SAND head band carrying the h1 and the hero's hairline-lozenge ornament,
+   the reading measure on the LIMESTONE ground with the homepage's tracked numeral opening each
+   course, then a closing SAND band carrying the one accent-filled CTA, so the page steps down to
+   the espresso footer the way the homepage does instead of dropping straight onto it.
+   Only .text-page*, .prose and .prose__* selectors are used here; index.html carries none of them,
+   so nothing on the homepage changes.
+
+   MEASURE. 58ch, the same cap as .about__text p on the homepage (about 68 characters per line on
+   Inter at 17px); the ch unit is the advance of "0", noticeably wider than the average lowercase
+   letter, so a 68ch cap would set roughly 80 characters and overrun the house measure.
+
+   TEXT PAIRS (need >= 4.5:1)                                             ratio
+     espresso    #2A1E14 on sand      #EDE3D2  h1 + standfirst ........... 12.76
+     espresso    #2A1E14 on limestone #F6F1E7  subheads, contact labels,
+                                               link hover ................ 14.41
+     taupe       #5C4D3D on limestone #F6F1E7  body copy, list items .....  7.22
+     taupe       #5C4D3D on sand      #EDE3D2  closing band line .........  6.39
+     timber-deep #734621 on limestone #F6F1E7  links (always underlined) .  7.10
+                 (timber #8F5A2E would be only 5.08 here and is kept off the text)
+     timber      #8F5A2E on limestone #F6F1E7  course numerals 01-05 .....  5.08
+                 (the numerals are on the limestone body, never in a sand band, where timber
+                  would be 4.50; the bands below set --accent-text to timber-deep regardless)
+     plaster     #FCFAF5 on timber    #8F5A2E  closing CTA ...............  5.49
+     plaster     #FCFAF5 on timber-deep #734621 closing CTA hover ........  7.66
+     limestone   #F6F1E7 on walnut    #3A2718  closing CTA active ........ 12.58
+     brass       #C9A66B on espresso  #2A1E14  footer link, current page .  7.07
+
+   NON-TEXT (need >= 3:1)
+     focus ring walnut #3A2718 on sand 11.14 / on limestone 12.58
+     closing CTA fill timber #8F5A2E against the sand band .............    4.50
+     list marker stone #8A7A66 on limestone ............................    3.69
+       (a marker is decorative — the wording carries the meaning — but it is kept above 3:1
+        anyway. --timber is deliberately NOT spent here: the page's single accent belongs to the
+        closing CTA and the course numerals, as it does on the homepage.)
+
+   DECORATIVE ONLY (never text, never the sole boundary of a control)
+     rule #D8CBB6  hairline under the head band, above each course, above the closing band
+                   (1.42 on limestone, 1.26 on sand)
+
+   HIGH CONTRAST (html.a11y-contrast) — every colour above is a token, so it follows the overrides:
+     black on white for text, markers, hairlines and focus ............... 21.00
+     links accent-deep #2B1705 on white ................................. 17.11
+     course numerals accent #4A2A0C on white ............................ 12.90
+     CTA white on accent #4A2A0C ........................................ 12.90
+     footer current page #FFD27A on black ............................... 14.75
+   ------------------------------------------------------------------------------------------- */
+.text-page__head {
+    padding-block: clamp(var(--space-5), 7vw, var(--space-7));
+    background: var(--sand);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    /* Same contract as the hero and gallery bands: on sand, accent text is timber-deep (6.29),
+       never timber (4.50). Nothing in the band uses it today; it keeps the band safe if it ever does. */
+    --accent-text: var(--timber-deep);
+}
+/* Its own step, so the hierarchy hero h1 > page title > section title > course subhead holds at
+   every width. Borrowing --step-h2 left the title barely larger than its own subheads (1.25x at 390px,
+   same face, same weight, same case), which is what made the page read as a default article. */
+.text-page__title {
+    max-width: 24ch;
+    margin-inline: auto;
+    font-size: var(--step-h2-page);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    overflow-wrap: break-word;
+}
+.text-page__head .ornament { margin-top: clamp(1rem, 1.8vw, 1.375rem); }
+/* One gesture, two lines at every width (34ch is about 45 characters at 24px, 38 at 18px).
+   Centred setting stops working past two or three lines, and text-wrap: balance gives up above six,
+   so the detail it used to carry lives in the first paragraph of the prose instead. */
+.text-page__standfirst {
+    max-width: 34ch;
+    margin: clamp(1rem, 2vw, 1.5rem) auto 0;
+    font-family: var(--serif);
+    font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem);
+    line-height: 1.45;
     letter-spacing: -0.005em;
+    color: var(--espresso);
+    text-wrap: balance;
 }
-.page__title::after {
-    content: "";
-    display: block;
-    width: 3.5rem;
-    height: 2px;
-    margin-top: clamp(1.25rem, 2.5vw, 2rem);
-    background: var(--accent);
+
+.text-page__body { padding-block: var(--section); }
+
+/* Closing band: answers the head band and hands the reader back to the villa, so the page ends on a
+   gesture rather than on its driest paragraph and then 128px of empty limestone above the footer. */
+.text-page__foot {
+    padding-block: clamp(var(--space-5), 7vw, var(--space-6));
+    background: var(--sand);
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    /* Same band contract as .hero, .gallery and .text-page__head: accent text on sand is timber-deep. */
+    --accent-text: var(--timber-deep);
 }
+.text-page__foot p {
+    max-width: 44ch;
+    margin-inline: auto;
+    color: var(--taupe);
+}
+.text-page__foot .button { margin-top: var(--space-3); }
+
+/* One column of reading, centred on the page. 58ch — the homepage's own body measure — is the hard
+   ceiling; it narrows with the viewport and never applies below about 640px. */
 .prose {
-    max-width: 68ch;
-    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    max-width: 58ch;
+    margin-inline: auto;
+    color: var(--taupe);
+    line-height: 1.75;
+    overflow-wrap: break-word;
 }
+.prose > * + * { margin-top: var(--space-3); }
+/* The band above already supplies the space over the opening subhead. */
+.prose > :first-child { margin-top: 0; }
+
+/* Each subhead opens a course, marked by the same quiet hairline that separates the homepage bands
+   and opened by the homepage's own device: a bare tracked numeral above the serif title. */
 .prose h2 {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-top: clamp(var(--space-5), 6vw, var(--space-6));
+    padding-top: clamp(var(--space-3), 3vw, var(--space-4));
+    border-top: 1px solid var(--rule);
+    font-size: var(--step-h2-sub);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--espresso);
+}
+/* The head band already closes on a full-bleed hairline; without this the first course would draw a
+   second, shorter one just below it with nothing in between. (0,1,2) beats .prose h2 at (0,1,1). */
+.prose > h2:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+/* The numeral from .section-head__index, at course scale. aria-hidden in the markup, exactly as on the
+   homepage, so it never joins the heading's accessible name. --accent-text is --timber on the limestone
+   body (5.08) and --timber-deep inside any sand band (6.29), so it is safe wherever a course sits. */
+.prose__course {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: var(--sans);
+    font-size: var(--step-label);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.28em;
+    color: var(--accent-text);
+    font-variant-numeric: tabular-nums lining-nums;
+}
+/* A group opener inside a course, not another paragraph: 48-64px above it, the inherited 24px below,
+   so a long list breaks into groups the eye can hold instead of one undifferentiated field. */
+.prose h3 {
+    margin-top: clamp(var(--space-5), 5vw, var(--space-6));
     font-size: var(--step-h3);
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--espresso);
+}
+/* Except the first one: the course title above it is already the separator, and 48-64px there would
+   read as a missing paragraph. (0,1,2) beats .prose h3 at (0,1,1). */
+.prose h2 + h3 { margin-top: var(--space-3); }
+
+/* Lists: no bullet glyph, a small stone lozenge instead — the ornament's diamond at list scale.
+   20px between items against a 29.75px line inside them (a ratio of 1.67) keeps the item boundaries
+   readable, while staying tighter than the 24px between paragraphs so the list still groups. */
+.prose ul {
+    display: grid;
+    gap: 1.25rem;
+    padding: 0;
+    list-style: none;
+}
+.prose li {
+    position: relative;
+    /* Capped against the viewport so the indent cannot eat a narrow screen
+       once the reader enlarges text. */
+    padding-left: min(1.75rem, 8vw);
+}
+.prose li::before {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    top: 0.7em;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    /* Stone, not timber: twelve accent lozenges as punctuation would spend the page's single accent on
+       decorating a list. The accent belongs to the course numerals and the closing CTA. */
+    background: var(--stone);
+    transform: rotate(45deg);
+}
+
+.prose a {
+    color: var(--timber-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+    transition: color var(--dur-fast) var(--ease-out);
+}
+.prose a:hover {
+    color: var(--espresso);
+    text-decoration-thickness: 2px;
+}
+
+/* Feedback details: a quiet echo of the contact band's label-over-serif-link pairs, on the light ground.
+   Each link is its own 44px-high target, so the lozenge is dropped from these items. */
+.prose ul.prose__contact { gap: var(--space-1); }
+.prose .prose__contact li {
+    display: flex;
+    flex-wrap: wrap;
+    /* Centre, not baseline: baseline leaves the row shorter than the 44px link
+       inside it, so consecutive links overlap and crowd each other's tap target. */
+    align-items: center;
+    gap: 0 var(--space-2);
+    padding-left: 0;
+}
+.prose .prose__contact li::before { content: none; }
+.prose__contact-label {
+    flex: none;
+    font-size: var(--step-label);
     font-weight: 500;
     line-height: 1.2;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--espresso);
 }
-.prose p + p { margin-top: 1.25rem; }
-.prose ul {
-    margin-top: 1rem;
-    padding-left: 1.25rem;
+.prose .prose__contact a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    max-width: 100%;
+    font-family: var(--serif);
+    font-size: clamp(1.1875rem, 1.05rem + 0.5vw, 1.5rem);
+    font-variant-numeric: lining-nums;
+    line-height: 1.3;
+    text-underline-offset: 0.25em;
 }
-.prose li + li { margin-top: 0.5rem; }
-.prose a { text-underline-offset: 0.25em; }
-.prose a:hover { color: var(--accent); }
+
+@media (forced-colors: active) {
+    .prose li::before { background: CanvasText; }
+}
+
+@media print {
+    .text-page__head,
+    .text-page__foot { background: none; }
+    /* A "Return to the villa" button is meaningless on paper. */
+    .text-page__foot .button { display: none; }
+    .prose { max-width: none; }
+}
 
 /* ---------- Motion & system preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
@@ -902,14 +1634,28 @@ html:has(.lightbox[open]) { overflow: hidden; }
 }
 
 @media (forced-colors: active) {
-    .section-title::after,
-    .hero__title::after,
-    .page__title::after { background: CanvasText; }
+    .section-head__index::before,
+    .section-head__index::after,
+    .ornament::before,
+    .ornament::after,
+    .ornament span,
+    .about__text .lead::after,
+    .contact::before { background: CanvasText; }
+    .hero__panel::after,
+    .about__media::after,
+    .tile__link::after { display: none; }
+    .site-header {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
     .a11y-option[aria-pressed="true"],
     .header-button[aria-expanded="true"] { outline: 2px solid Highlight; outline-offset: -4px; }
 }
 
 @media print {
     .site-header, .skip-link, .lightbox, .a11y-panel { display: none !important; }
-    .contact { background: none; color: #000; }
+    .hero, .gallery, .contact, .site-footer { background: none; color: #000; }
+    .contact { padding-top: var(--section); }
+    .contact::before { display: none; }
+    .contact .section-title, .contact-item h3, .site-footer a { color: #000; }
 }
