@@ -8,11 +8,22 @@ index.html            the one-page site
 accessibility.html    accessibility statement (linked from the footer and the Accessibility panel)
 css/styles.css        all styles; colour/typography tokens at the top
 js/main.js            mobile menu, accessibility options, gallery photo viewer
-fonts/                self-hosted Cormorant Garamond + Inter (SIL Open Font License)
+fonts/                self-hosted Playfair Display + Inter (SIL Open Font License)
 images/               optimised photos (<name>-<width>.jpg/.webp, <name>-full.jpg)
 tools/                process_images.py — crops/resizes original photos into images/
 docs/                 accessibility audit report
 ```
+
+## The design
+
+"Earth Luxe": the colours are sampled from photographs of the villa itself, so the site is built from
+the same materials as the house — limestone and sand grounds, espresso and taupe text, a walnut
+contact band, **one** accent (iroko timber `#8F5A2E`) and **one** metal (brass, used only on dark
+surfaces). Playfair Display for headings, Inter for everything else.
+
+Every token is defined at the top of `css/styles.css` with its computed contrast ratio. When adding
+anything, reuse those tokens rather than introducing a new colour — and note the rules baked into
+them: `--brass` is never text on a light background, and `--rule` and `--placeholder` are never text.
 
 ## Accessibility — please keep it that way
 

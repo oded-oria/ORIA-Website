@@ -7,7 +7,7 @@
     <meta name="description" content="Experience the beauty and tranquility of Lefkada, one of Greece's most stunning islands. Our property offers the perfect blend of traditional Greek charm and modern comfort.">
     <link rel="canonical" href="https://www.orialefkada.gr/">
     <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#FAF7F2">
+    <meta name="theme-color" content="#F6F1E7">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.orialefkada.gr/">
@@ -17,7 +17,7 @@
     <meta property="og:image:alt" content="Two-storey stone villa at sunset with a covered lounge, daybeds under a fringed parasol and the pool terrace.">
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/styles.css">
 
@@ -40,7 +40,9 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container site-header__inner">
-            <a class="wordmark" href="#home">ORIA LEFKADA</a>
+            <div class="site-header__brand">
+                <a class="wordmark" href="#home">ORIA LEFKADA</a>
+            </div>
 
             <nav class="site-nav" aria-label="Primary">
                 <button type="button" class="header-button nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
@@ -57,25 +59,27 @@
             </nav>
 
             <!-- Accessibility options -->
-            <button type="button" class="header-button a11y-toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="12" cy="12" r="9.5"/>
-                    <circle cx="12" cy="7.25" r="1.1"/>
-                    <path d="M7 10.25h10M12 10.25v4.5M12 14.75l-2.5 4M12 14.75l2.5 4"/>
-                </svg>
-                <span class="a11y-toggle__label">Accessibility</span>
-            </button>
-            <div class="a11y-panel" id="a11y-panel" role="group" aria-labelledby="a11y-panel-title" hidden>
-                <p class="a11y-panel__title" id="a11y-panel-title">Accessibility options</p>
-                <ul class="a11y-options" role="list">
-                    <li><button type="button" class="a11y-option" data-a11y="text" aria-pressed="false">Larger text <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                    <li><button type="button" class="a11y-option" data-a11y="contrast" aria-pressed="false">High contrast <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                    <li><button type="button" class="a11y-option" data-a11y="underline" aria-pressed="false">Underline links <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                    <li><button type="button" class="a11y-option" data-a11y="motion" aria-pressed="false">Stop animations <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                </ul>
-                <div class="a11y-panel__foot">
-                    <button type="button" class="a11y-reset" id="a11y-reset">Reset all</button>
-                    <a href="accessibility.html">Accessibility statement</a>
+            <div class="site-header__tools">
+                <button type="button" class="header-button a11y-toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="9.5"/>
+                        <circle cx="12" cy="7.25" r="1.1"/>
+                        <path d="M7 10.25h10M12 10.25v4.5M12 14.75l-2.5 4M12 14.75l2.5 4"/>
+                    </svg>
+                    <span class="a11y-toggle__label">Accessibility</span>
+                </button>
+                <div class="a11y-panel" id="a11y-panel" role="group" aria-labelledby="a11y-panel-title" hidden>
+                    <p class="a11y-panel__title" id="a11y-panel-title">Accessibility options</p>
+                    <ul class="a11y-options" role="list">
+                        <li><button type="button" class="a11y-option" data-a11y="text" aria-pressed="false">Larger text <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                        <li><button type="button" class="a11y-option" data-a11y="contrast" aria-pressed="false">High contrast <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                        <li><button type="button" class="a11y-option" data-a11y="underline" aria-pressed="false">Underline links <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                        <li><button type="button" class="a11y-option" data-a11y="motion" aria-pressed="false">Stop animations <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    </ul>
+                    <div class="a11y-panel__foot">
+                        <button type="button" class="a11y-reset" id="a11y-reset">Reset all</button>
+                        <a href="accessibility.html">Accessibility statement</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,70 +87,102 @@
 
     <main id="main" tabindex="-1">
 
-        <!-- Hero Section -->
+        <!-- Hero Section: centred title block above a triptych of three tall photographs -->
         <section id="home" class="hero" aria-labelledby="hero-title">
-            <div class="hero__content">
-                <h1 class="hero__title" id="hero-title">ORIA LEFKADA</h1>
-                <p class="hero__tagline">Discover Paradise in the Heart of the Ionian Sea</p>
-                <a href="#contact" class="button">Book Your Stay</a>
-            </div>
-            <div class="hero__media">
-                <picture>
-                    <source type="image/webp"
-                            srcset="images/terrace-daybeds-sea-view-480.webp 480w, images/terrace-daybeds-sea-view-800.webp 800w, images/terrace-daybeds-sea-view-1152.webp 1152w"
-                            sizes="(min-width: 56em) 45vw, 100vw">
-                    <img src="images/terrace-daybeds-sea-view-800.jpg"
-                         srcset="images/terrace-daybeds-sea-view-480.jpg 480w, images/terrace-daybeds-sea-view-800.jpg 800w, images/terrace-daybeds-sea-view-1152.jpg 1152w"
-                         sizes="(min-width: 56em) 45vw, 100vw"
-                         width="1152" height="1536" fetchpriority="high" decoding="async"
-                         alt="View from the covered terrace across two daybeds and a fringed parasol to the infinity pool, the sea and distant islands.">
-                </picture>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about" aria-labelledby="about-title">
-            <div class="container about__grid">
-                <div class="about__text">
-                    <span class="eyebrow" aria-hidden="true">01</span>
-                    <h2 class="section-title" id="about-title">Welcome to Your Greek Island Escape</h2>
-                    <p class="lead">Experience the beauty and tranquility of Lefkada, one of Greece's most stunning islands. Our property offers the perfect blend of traditional Greek charm and modern comfort.</p>
-                    <p>Located in the pristine waters of the Ionian Sea, Lefkada is renowned for its crystal-clear turquoise waters, dramatic white cliffs, and some of the most beautiful beaches in the Mediterranean.</p>
-                    <p>Whether you're seeking relaxation, adventure, or cultural exploration, ORIA LEFKADA provides the perfect base for your unforgettable Greek island experience.</p>
+            <div class="container">
+                <div class="hero__intro">
+                    <h1 class="hero__title" id="hero-title">ORIA LEFKADA</h1>
+                    <div class="ornament" aria-hidden="true"><span></span></div>
+                    <p class="hero__tagline">Discover Paradise in the Heart of the Ionian Sea</p>
+                    <a href="#contact" class="button">Book Your Stay</a>
                 </div>
-                <div class="about__media">
-                    <div class="about__frame">
+
+                <div class="hero__triptych">
+                    <div class="hero__panel hero__panel--stone">
                         <picture>
                             <source type="image/webp"
-                                    srcset="images/entrance-door-sea-view-600.webp 600w, images/entrance-door-sea-view-900.webp 900w"
-                                    sizes="(min-width: 56em) 35vw, 90vw">
-                            <img src="images/entrance-door-sea-view-600.jpg"
-                                 srcset="images/entrance-door-sea-view-600.jpg 600w, images/entrance-door-sea-view-900.jpg 900w"
-                                 sizes="(min-width: 56em) 35vw, 90vw"
-                                 width="900" height="1125" loading="lazy" decoding="async"
-                                 alt="Stone entrance with a tall timber door standing ajar, framing a view straight through the villa to a parasol and the sea.">
+                                    srcset="images/stone-wing-pergola-seating-480.webp 480w, images/stone-wing-pergola-seating-800.webp 800w"
+                                    sizes="(min-width: 85em) 28rem, (min-width: 36em) 34vw, 50vw">
+                            <img src="images/stone-wing-pergola-seating-800.jpg"
+                                 srcset="images/stone-wing-pergola-seating-480.jpg 480w, images/stone-wing-pergola-seating-800.jpg 800w"
+                                 sizes="(min-width: 85em) 28rem, (min-width: 36em) 34vw, 50vw"
+                                 width="480" height="600" decoding="async"
+                                 alt="Stone-walled wing with a timber pergola and two woven armchairs, olive trees behind.">
+                        </picture>
+                    </div>
+                    <div class="hero__panel hero__panel--main">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="images/terrace-daybeds-sea-view-480.webp 480w, images/terrace-daybeds-sea-view-800.webp 800w, images/terrace-daybeds-sea-view-1152.webp 1152w"
+                                    sizes="(min-width: 85em) 40rem, (min-width: 48em) 50vw, 50vw">
+                            <img src="images/terrace-daybeds-sea-view-800.jpg"
+                                 srcset="images/terrace-daybeds-sea-view-480.jpg 480w, images/terrace-daybeds-sea-view-800.jpg 800w, images/terrace-daybeds-sea-view-1152.jpg 1152w"
+                                 sizes="(min-width: 85em) 40rem, (min-width: 48em) 50vw, 50vw"
+                                 width="1152" height="1536" fetchpriority="high" decoding="async"
+                                 alt="View from the covered terrace across two daybeds and a fringed parasol to the infinity pool, the sea and distant islands.">
+                        </picture>
+                    </div>
+                    <div class="hero__panel hero__panel--sea">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="images/infinity-pool-edge-sea-480.webp 480w, images/infinity-pool-edge-sea-800.webp 800w"
+                                    sizes="(min-width: 85em) 28rem, (min-width: 36em) 34vw, 100vw">
+                            <img src="images/infinity-pool-edge-sea-800.jpg"
+                                 srcset="images/infinity-pool-edge-sea-480.jpg 480w, images/infinity-pool-edge-sea-800.jpg 800w"
+                                 sizes="(min-width: 85em) 28rem, (min-width: 36em) 34vw, 100vw"
+                                 width="480" height="601" decoding="async"
+                                 alt="Infinity pool edge merging with the blue sea and hazy islands under a clear sky.">
                         </picture>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+        <!-- About Section -->
+        <section id="about" class="section about" aria-labelledby="about-title">
             <div class="container">
                 <div class="section-head">
-                    <span class="eyebrow" aria-hidden="true">02</span>
+                    <span class="section-head__index" aria-hidden="true"><span class="section-head__num">01</span></span>
+                    <h2 class="section-title" id="about-title">Welcome to Your Greek Island Escape</h2>
+                </div>
+                <div class="about__grid">
+                    <div class="about__media">
+                        <picture>
+                            <source type="image/webp"
+                                    srcset="images/entrance-door-sea-view-600.webp 600w, images/entrance-door-sea-view-900.webp 900w"
+                                    sizes="(min-width: 85em) 33rem, (min-width: 56em) 40vw, 92vw">
+                            <img src="images/entrance-door-sea-view-600.jpg"
+                                 srcset="images/entrance-door-sea-view-600.jpg 600w, images/entrance-door-sea-view-900.jpg 900w"
+                                 sizes="(min-width: 85em) 33rem, (min-width: 56em) 40vw, 92vw"
+                                 width="900" height="1125" loading="lazy" decoding="async"
+                                 alt="Stone entrance with a tall timber door standing ajar, framing a view straight through the villa to a parasol and the sea.">
+                        </picture>
+                    </div>
+                    <div class="about__text">
+                        <p class="lead">Experience the beauty and tranquility of Lefkada, one of Greece's most stunning islands. Our property offers the perfect blend of traditional Greek charm and modern comfort.</p>
+                        <p>Located in the pristine waters of the Ionian Sea, Lefkada is renowned for its crystal-clear turquoise waters, dramatic white cliffs, and some of the most beautiful beaches in the Mediterranean.</p>
+                        <p>Whether you're seeking relaxation, adventure, or cultural exploration, ORIA LEFKADA provides the perfect base for your unforgettable Greek island experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery" aria-labelledby="gallery-title">
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-head__index" aria-hidden="true"><span class="section-head__num">02</span></span>
                     <h2 class="section-title" id="gallery-title">Photo Gallery</h2>
                 </div>
                 <!-- Each tile links to the full photo; js/main.js upgrades the links to open an in-page viewer. -->
-                <ul class="mosaic" role="list" id="gallery-list">
-                    <li class="tile tile--big">
+                <ul class="gallery-grid" role="list" id="gallery-list">
+                    <li class="tile">
                         <a class="tile__link" href="images/sunken-lounge-infinity-pool-full.jpg" data-width="1117" data-height="1843">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/sunken-lounge-infinity-pool-480.webp 480w, images/sunken-lounge-infinity-pool-800.webp 800w, images/sunken-lounge-infinity-pool-1152.webp 1152w" sizes="(min-width: 48em) 50vw, 100vw">
-                                <img src="images/sunken-lounge-infinity-pool-800.jpg" srcset="images/sunken-lounge-infinity-pool-480.jpg 480w, images/sunken-lounge-infinity-pool-800.jpg 800w, images/sunken-lounge-infinity-pool-1152.jpg 1152w" sizes="(min-width: 48em) 50vw, 100vw"
-                                     width="800" height="999" loading="lazy" decoding="async"
+                                <source type="image/webp" srcset="images/sunken-lounge-infinity-pool-480.webp 480w, images/sunken-lounge-infinity-pool-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/sunken-lounge-infinity-pool-480.jpg" srcset="images/sunken-lounge-infinity-pool-480.jpg 480w, images/sunken-lounge-infinity-pool-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
+                                     width="480" height="600" loading="lazy" decoding="async"
                                      alt="Sunken lounge with cushioned seating set into the infinity pool, overlooking olive trees, hills and the sea.">
                             </picture>
                         </a>
@@ -155,8 +191,8 @@
                         <a class="tile__link" href="images/sun-loungers-infinity-pool-full.jpg" data-width="1014" data-height="1741">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/sun-loungers-infinity-pool-480.webp 480w, images/sun-loungers-infinity-pool-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/sun-loungers-infinity-pool-480.jpg" srcset="images/sun-loungers-infinity-pool-480.jpg 480w, images/sun-loungers-infinity-pool-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/sun-loungers-infinity-pool-480.webp 480w, images/sun-loungers-infinity-pool-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/sun-loungers-infinity-pool-480.jpg" srcset="images/sun-loungers-infinity-pool-480.jpg 480w, images/sun-loungers-infinity-pool-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Sun loungers under fringed parasols beside the infinity pool, facing the open sea and distant islands.">
                             </picture>
@@ -166,8 +202,8 @@
                         <a class="tile__link" href="images/infinity-pool-edge-sea-full.jpg" data-width="1071" data-height="1741">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/infinity-pool-edge-sea-480.webp 480w, images/infinity-pool-edge-sea-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/infinity-pool-edge-sea-480.jpg" srcset="images/infinity-pool-edge-sea-480.jpg 480w, images/infinity-pool-edge-sea-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/infinity-pool-edge-sea-480.webp 480w, images/infinity-pool-edge-sea-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/infinity-pool-edge-sea-480.jpg" srcset="images/infinity-pool-edge-sea-480.jpg 480w, images/infinity-pool-edge-sea-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="601" loading="lazy" decoding="async"
                                      alt="Infinity pool edge merging with the blue sea and hazy islands under a clear sky.">
                             </picture>
@@ -177,8 +213,8 @@
                         <a class="tile__link" href="images/outdoor-dining-pergola-sea-view-full.jpg" data-width="900" data-height="1600">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/outdoor-dining-pergola-sea-view-480.webp 480w, images/outdoor-dining-pergola-sea-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/outdoor-dining-pergola-sea-view-480.jpg" srcset="images/outdoor-dining-pergola-sea-view-480.jpg 480w, images/outdoor-dining-pergola-sea-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/outdoor-dining-pergola-sea-view-480.webp 480w, images/outdoor-dining-pergola-sea-view-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/outdoor-dining-pergola-sea-view-480.jpg" srcset="images/outdoor-dining-pergola-sea-view-480.jpg 480w, images/outdoor-dining-pergola-sea-view-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Shaded outdoor dining table with carved wooden chairs under a reed pergola, looking across the pool to the sea.">
                             </picture>
@@ -188,19 +224,20 @@
                         <a class="tile__link" href="images/daybeds-parasol-island-view-full.jpg" data-width="1152" data-height="1679">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/daybeds-parasol-island-view-480.webp 480w, images/daybeds-parasol-island-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/daybeds-parasol-island-view-480.jpg" srcset="images/daybeds-parasol-island-view-480.jpg 480w, images/daybeds-parasol-island-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/daybeds-parasol-island-view-480.webp 480w, images/daybeds-parasol-island-view-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/daybeds-parasol-island-view-480.jpg" srcset="images/daybeds-parasol-island-view-480.jpg 480w, images/daybeds-parasol-island-view-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Daybeds with striped cushions under a fringed parasol, overlooking a bay, islands and distant mountains.">
                             </picture>
                         </a>
                     </li>
-                    <li class="tile tile--wide">
+                    <!-- The one landscape photograph: double width on the 4-column grid, a portrait crop below that. -->
+                    <li class="tile tile--sunset">
                         <a class="tile__link" href="images/villa-pool-terrace-sunset-full.jpg" data-width="1600" data-height="1000">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/villa-pool-terrace-sunset-800.webp 800w, images/villa-pool-terrace-sunset-1200.webp 1200w, images/villa-pool-terrace-sunset-1600.webp 1600w" sizes="(min-width: 48em) 50vw, 100vw">
-                                <img src="images/villa-pool-terrace-sunset-800.jpg" srcset="images/villa-pool-terrace-sunset-800.jpg 800w, images/villa-pool-terrace-sunset-1200.jpg 1200w, images/villa-pool-terrace-sunset-1600.jpg 1600w" sizes="(min-width: 48em) 50vw, 100vw"
+                                <source type="image/webp" srcset="images/villa-pool-terrace-sunset-800.webp 800w, images/villa-pool-terrace-sunset-1200.webp 1200w, images/villa-pool-terrace-sunset-1600.webp 1600w" sizes="(min-width: 85em) 41rem, (min-width: 64em) 50vw, (min-width: 48em) 66vw, 100vw">
+                                <img src="images/villa-pool-terrace-sunset-800.jpg" srcset="images/villa-pool-terrace-sunset-800.jpg 800w, images/villa-pool-terrace-sunset-1200.jpg 1200w, images/villa-pool-terrace-sunset-1600.jpg 1600w" sizes="(min-width: 85em) 41rem, (min-width: 64em) 50vw, (min-width: 48em) 66vw, 100vw"
                                      width="800" height="500" loading="lazy" decoding="async"
                                      alt="Two-storey stone villa at sunset with a covered lounge, daybeds under a fringed parasol and the pool terrace.">
                             </picture>
@@ -210,8 +247,8 @@
                         <a class="tile__link" href="images/front-door-terrace-view-full.jpg" data-width="1152" data-height="2048">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/front-door-terrace-view-480.webp 480w, images/front-door-terrace-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/front-door-terrace-view-480.jpg" srcset="images/front-door-terrace-view-480.jpg 480w, images/front-door-terrace-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/front-door-terrace-view-480.webp 480w, images/front-door-terrace-view-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/front-door-terrace-view-480.jpg" srcset="images/front-door-terrace-view-480.jpg 480w, images/front-door-terrace-view-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Open timber front door revealing the covered terrace lounge, a woven lantern and the sea beyond.">
                             </picture>
@@ -221,8 +258,8 @@
                         <a class="tile__link" href="images/stone-wing-pergola-seating-full.jpg" data-width="1152" data-height="1639">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/stone-wing-pergola-seating-480.webp 480w, images/stone-wing-pergola-seating-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/stone-wing-pergola-seating-480.jpg" srcset="images/stone-wing-pergola-seating-480.jpg 480w, images/stone-wing-pergola-seating-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/stone-wing-pergola-seating-480.webp 480w, images/stone-wing-pergola-seating-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/stone-wing-pergola-seating-480.jpg" srcset="images/stone-wing-pergola-seating-480.jpg 480w, images/stone-wing-pergola-seating-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Stone-walled wing with a timber pergola and two woven armchairs, olive trees behind.">
                             </picture>
@@ -232,8 +269,8 @@
                         <a class="tile__link" href="images/living-room-kitchen-pool-view-full.jpg" data-width="1152" data-height="1843">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/living-room-kitchen-pool-view-480.webp 480w, images/living-room-kitchen-pool-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/living-room-kitchen-pool-view-480.jpg" srcset="images/living-room-kitchen-pool-view-480.jpg 480w, images/living-room-kitchen-pool-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/living-room-kitchen-pool-view-480.webp 480w, images/living-room-kitchen-pool-view-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/living-room-kitchen-pool-view-480.jpg" srcset="images/living-room-kitchen-pool-view-480.jpg 480w, images/living-room-kitchen-pool-view-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Open-plan living room with a cream sofa, woven armchairs and a stone column, the kitchen behind and the pool outside.">
                             </picture>
@@ -243,19 +280,20 @@
                         <a class="tile__link" href="images/living-room-tv-sea-view-full.jpg" data-width="1152" data-height="1536">
                             <span class="visually-hidden">View larger photo: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/living-room-tv-sea-view-480.webp 480w, images/living-room-tv-sea-view-800.webp 800w" sizes="(min-width: 48em) 25vw, 50vw">
-                                <img src="images/living-room-tv-sea-view-480.jpg" srcset="images/living-room-tv-sea-view-480.jpg 480w, images/living-room-tv-sea-view-800.jpg 800w" sizes="(min-width: 48em) 25vw, 50vw"
+                                <source type="image/webp" srcset="images/living-room-tv-sea-view-480.webp 480w, images/living-room-tv-sea-view-800.webp 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw">
+                                <img src="images/living-room-tv-sea-view-480.jpg" srcset="images/living-room-tv-sea-view-480.jpg 480w, images/living-room-tv-sea-view-800.jpg 800w" sizes="(min-width: 85em) 20rem, (min-width: 64em) 25vw, (min-width: 48em) 33vw, 50vw"
                                      width="480" height="600" loading="lazy" decoding="async"
                                      alt="Living room with a cream sofa, a wall-mounted TV on a stone wall and sliding glass doors to the pool and sea.">
                             </picture>
                         </a>
                     </li>
-                    <li class="tile tile--wide">
+                    <!-- The 3D render closes the grid: double width on 2 and 3 columns, a single cell on 4 columns. -->
+                    <li class="tile tile--render">
                         <a class="tile__link" href="images/villa-aerial-visualisation-full.jpg" data-width="1600" data-height="1000">
                             <span class="visually-hidden">View larger image: </span>
                             <picture>
-                                <source type="image/webp" srcset="images/villa-aerial-visualisation-800.webp 800w, images/villa-aerial-visualisation-1200.webp 1200w, images/villa-aerial-visualisation-1600.webp 1600w" sizes="(min-width: 48em) 50vw, 100vw">
-                                <img src="images/villa-aerial-visualisation-800.jpg" srcset="images/villa-aerial-visualisation-800.jpg 800w, images/villa-aerial-visualisation-1200.jpg 1200w, images/villa-aerial-visualisation-1600.jpg 1600w" sizes="(min-width: 48em) 50vw, 100vw"
+                                <source type="image/webp" srcset="images/villa-aerial-visualisation-800.webp 800w, images/villa-aerial-visualisation-1200.webp 1200w, images/villa-aerial-visualisation-1600.webp 1600w" sizes="(min-width: 85em) 38rem, (min-width: 64em) 48vw, (min-width: 48em) 66vw, 100vw">
+                                <img src="images/villa-aerial-visualisation-800.jpg" srcset="images/villa-aerial-visualisation-800.jpg 800w, images/villa-aerial-visualisation-1200.jpg 1200w, images/villa-aerial-visualisation-1600.jpg 1600w" sizes="(min-width: 85em) 38rem, (min-width: 64em) 48vw, (min-width: 48em) 66vw, 100vw"
                                      width="800" height="500" loading="lazy" decoding="async"
                                      alt="Computer-generated aerial view of the villa on its terraced hillside plot, with a pergola-covered carport, stone retaining walls, olive and cypress trees, and the pool terrace.">
                             </picture>
@@ -267,13 +305,13 @@
         </section>
 
         <!-- Features Section -->
-        <section id="features" class="features" aria-labelledby="features-title">
+        <section id="features" class="section features" aria-labelledby="features-title">
             <div class="container">
                 <div class="section-head">
-                    <span class="eyebrow" aria-hidden="true">03</span>
+                    <span class="section-head__index" aria-hidden="true"><span class="section-head__num">03</span></span>
                     <h2 class="section-title" id="features-title">What We Offer</h2>
                 </div>
-                <ul class="offer-list" role="list">
+                <ul class="offer-grid" role="list">
                     <li class="offer">
                         <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M3 11.5 12 4l9 7.5"/>
@@ -314,10 +352,10 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact" aria-labelledby="contact-title">
+        <section id="contact" class="section contact" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section-head">
-                    <span class="eyebrow" aria-hidden="true">04</span>
+                    <span class="section-head__index" aria-hidden="true"><span class="section-head__num">04</span></span>
                     <h2 class="section-title" id="contact-title">Get In Touch</h2>
                 </div>
                 <div class="contact-grid">

@@ -120,13 +120,26 @@
         if (state) { state.textContent = on ? 'On' : 'Off'; }
     }
 
+    // A property that is mid-transition ignores a new custom-property value and
+    // keeps its old colour, which stranded the call-to-action on the wrong accent
+    // when High contrast was switched. Applying the change with transitions off,
+    // then forcing a reflow before restoring them, commits it in one step.
+    function applyWithoutTransition(change) {
+        root.classList.add('a11y-switching');
+        change();
+        void root.offsetWidth;
+        root.classList.remove('a11y-switching');
+    }
+
     optionButtons.forEach(function (button) {
         var key = button.getAttribute('data-a11y');
         renderOption(button, root.classList.contains('a11y-' + key));
 
         button.addEventListener('click', function () {
             var on = !root.classList.contains('a11y-' + key);
-            root.classList.toggle('a11y-' + key, on);
+            applyWithoutTransition(function () {
+                root.classList.toggle('a11y-' + key, on);
+            });
             renderOption(button, on);
 
             var prefs = readPrefs();
@@ -138,10 +151,12 @@
     var reset = document.getElementById('a11y-reset');
     if (reset) {
         reset.addEventListener('click', function () {
-            optionButtons.forEach(function (button) {
-                root.classList.remove('a11y-' + button.getAttribute('data-a11y'));
-                renderOption(button, false);
+            applyWithoutTransition(function () {
+                optionButtons.forEach(function (button) {
+                    root.classList.remove('a11y-' + button.getAttribute('data-a11y'));
+                });
             });
+            optionButtons.forEach(function (button) { renderOption(button, false); });
             writePrefs({});
         });
     }
@@ -186,8 +201,10 @@
                 if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) { return; }
                 event.preventDefault();
                 opener = link;
-                show(index);
+                // Open first, then fill: a live region that is not yet rendered
+                // announces nothing, so setting the count before showModal() was silent.
                 dialog.showModal();
+                show(index);
             });
         });
 

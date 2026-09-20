@@ -7,10 +7,17 @@
     <meta name="description" content="How the ORIA LEFKADA website supports visitors with disabilities, the standard it follows, and how to report a problem.">
     <link rel="canonical" href="https://www.orialefkada.gr/accessibility.html">
     <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#FAF7F2">
+    <meta name="theme-color" content="#F6F1E7">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.orialefkada.gr/accessibility.html">
+    <meta property="og:title" content="Accessibility statement - ORIA LEFKADA">
+    <meta property="og:description" content="How the ORIA LEFKADA website supports visitors with disabilities, the standard it follows, and how to report a problem.">
+    <meta property="og:image" content="https://www.orialefkada.gr/images/villa-pool-terrace-sunset-1200.jpg">
+    <meta property="og:image:alt" content="Two-storey stone villa at sunset with a covered lounge, daybeds under a fringed parasol and the pool terrace.">
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preload" href="fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/playfair-display-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/styles.css">
 
@@ -33,7 +40,9 @@
     <!-- Header -->
     <header class="site-header">
         <div class="container site-header__inner">
-            <a class="wordmark" href="index.html">ORIA LEFKADA</a>
+            <div class="site-header__brand">
+                <a class="wordmark" href="index.html">ORIA LEFKADA</a>
+            </div>
 
             <nav class="site-nav" aria-label="Primary">
                 <button type="button" class="header-button nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
@@ -50,71 +59,110 @@
             </nav>
 
             <!-- Accessibility options -->
-            <button type="button" class="header-button a11y-toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <circle cx="12" cy="12" r="9.5"/>
-                    <circle cx="12" cy="7.25" r="1.1"/>
-                    <path d="M7 10.25h10M12 10.25v4.5M12 14.75l-2.5 4M12 14.75l2.5 4"/>
-                </svg>
-                <span class="a11y-toggle__label">Accessibility</span>
-            </button>
-            <div class="a11y-panel" id="a11y-panel" role="group" aria-labelledby="a11y-panel-title" hidden>
-                <p class="a11y-panel__title" id="a11y-panel-title">Accessibility options</p>
-                <ul class="a11y-options" role="list">
-                    <li><button type="button" class="a11y-option" data-a11y="text" aria-pressed="false">Larger text <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                    <li><button type="button" class="a11y-option" data-a11y="contrast" aria-pressed="false">High contrast <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                    <li><button type="button" class="a11y-option" data-a11y="underline" aria-pressed="false">Underline links <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                    <li><button type="button" class="a11y-option" data-a11y="motion" aria-pressed="false">Stop animations <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
-                </ul>
-                <div class="a11y-panel__foot">
-                    <button type="button" class="a11y-reset" id="a11y-reset">Reset all</button>
-                    <a href="accessibility.html" aria-current="page">Accessibility statement</a>
+            <div class="site-header__tools">
+                <button type="button" class="header-button a11y-toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="9.5"/>
+                        <circle cx="12" cy="7.25" r="1.1"/>
+                        <path d="M7 10.25h10M12 10.25v4.5M12 14.75l-2.5 4M12 14.75l2.5 4"/>
+                    </svg>
+                    <span class="a11y-toggle__label">Accessibility</span>
+                </button>
+                <div class="a11y-panel" id="a11y-panel" role="group" aria-labelledby="a11y-panel-title" hidden>
+                    <p class="a11y-panel__title" id="a11y-panel-title">Accessibility options</p>
+                    <ul class="a11y-options" role="list">
+                        <li><button type="button" class="a11y-option" data-a11y="text" aria-pressed="false">Larger text <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                        <li><button type="button" class="a11y-option" data-a11y="contrast" aria-pressed="false">High contrast <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                        <li><button type="button" class="a11y-option" data-a11y="underline" aria-pressed="false">Underline links <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                        <li><button type="button" class="a11y-option" data-a11y="motion" aria-pressed="false">Stop animations <span class="a11y-option__state" aria-hidden="true">Off</span></button></li>
+                    </ul>
+                    <div class="a11y-panel__foot">
+                        <button type="button" class="a11y-reset" id="a11y-reset">Reset all</button>
+                        <a href="accessibility.html" aria-current="page">Accessibility statement</a>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <main id="main" tabindex="-1">
-        <div class="container page">
-            <h1 class="page__title">Accessibility statement</h1>
 
-            <div class="prose">
-                <p>ORIA LEFKADA wants everyone to be able to use this website, including people who rely on a screen reader, keyboard-only navigation, screen magnification, voice control or their own colour and text settings.</p>
+        <!-- Long-form text page: sand head band, the reading measure on the limestone ground,
+             then a sand closing band so the page steps down to the espresso footer. -->
+        <div class="text-page">
+            <div class="text-page__head">
+                <div class="container">
+                    <h1 class="text-page__title">Accessibility statement</h1>
+                    <div class="ornament" aria-hidden="true"><span></span></div>
+                    <p class="text-page__standfirst">Everyone should be able to use this website, whatever they use to read it.</p>
+                </div>
+            </div>
 
-                <h2>Standard we follow</h2>
-                <p>This website has been designed and built to conform to the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1</a> at level AA.</p>
+            <div class="text-page__body">
+                <div class="container">
+                    <div class="prose">
+                        <h2><span class="prose__course" aria-hidden="true">01</span>Standard we follow</h2>
+                        <p>This website has been designed and built to conform to the <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1</a> at level AA. This statement covers the two pages of the website: the home page and this accessibility statement.</p>
+                        <p>They are built for people who use a screen reader, who work by keyboard alone, who magnify the screen, who speak to their computer, or who apply their own colour and text settings.</p>
 
-                <h2>What we have done</h2>
-                <ul>
-                    <li>Every page has a clear structure of headings and landmarks, and a &ldquo;Skip to main content&rdquo; link.</li>
-                    <li>Everything can be operated with a keyboard alone, and the item that has focus is always clearly outlined.</li>
-                    <li>All photographs and images have a text description. Decorative icons are hidden from screen readers.</li>
-                    <li>Text and controls meet or exceed the required colour contrast of 4.5:1.</li>
-                    <li>Text can be enlarged to 200% and the pages work on screens as narrow as 320 pixels without sideways scrolling.</li>
-                    <li>Animation is minimal and is switched off automatically if your device asks for reduced motion. Nothing flashes, plays automatically or has a time limit.</li>
-                    <li>The photo gallery viewer works with a keyboard and screen reader: use Previous, Next and Close, the arrow keys, or Escape.</li>
-                    <li>The &ldquo;Accessibility&rdquo; button at the top of every page offers larger text, high contrast, underlined links and the option to stop animations. Your choices are remembered on your device.</li>
-                    <li>The website does not use cookies, tracking or third-party content.</li>
-                </ul>
+                        <h2><span class="prose__course" aria-hidden="true">02</span>What we have done</h2>
 
-                <h2>Known limitations</h2>
-                <ul>
-                    <li>The website is currently available in English only.</li>
-                    <li>One gallery image is a computer-generated architectural visualisation rather than a photograph. It is labelled as such.</li>
-                </ul>
+                        <h3>Structure and keyboard</h3>
+                        <ul role="list">
+                            <li>Every page has a clear structure of headings and landmarks, and a &ldquo;Skip to main content&rdquo; link as its first stop.</li>
+                            <li>Everything can be operated with a keyboard alone, and every link, button and control shows a clear outline when it has keyboard focus.</li>
+                            <li>The photo gallery on the home page opens in a viewer built for keyboard and screen reader use: Previous, Next and Close buttons, the left and right arrow keys, Escape to close, and the number of the photograph you are viewing shown beside them.</li>
+                            <li>Both pages also work without JavaScript: the menu stays open and each gallery photograph opens directly. Only the Accessibility options panel needs JavaScript.</li>
+                        </ul>
 
-                <h2>Feedback and contact</h2>
-                <p>If you have difficulty using any part of this website, or need information from it in a different format, please tell us and we will help:</p>
-                <ul>
-                    <li>Email: <a href="mailto:cohen.oded@gmail.com">cohen.oded@gmail.com</a></li>
-                    <li>Phone: <a href="tel:+972523330911">+972-52-3330911</a></li>
-                </ul>
-                <p>We aim to reply within 10 working days.</p>
+                        <h3>What you see</h3>
+                        <ul role="list">
+                            <li>Every photograph and image has a text description. Decorative icons and ornaments are hidden from screen readers.</li>
+                            <li>All text has a contrast of at least 4.5:1 against its background, and the buttons, control borders and focus outlines you need to see in order to use a page at least 3:1. Fine decorative lines are never used to identify anything, and no text is placed over a photograph.</li>
+                            <li>Text can be enlarged to 200% and the pages work on screens as narrow as 320 pixels without sideways scrolling.</li>
+                            <li>Movement is limited to short transitions and is switched off automatically if your device asks for reduced motion. Nothing flashes, plays automatically or has a time limit.</li>
+                        </ul>
 
-                <h2>How the website was assessed</h2>
-                <p>This statement was prepared on 19 September 2026. The website was assessed by self-evaluation, using automated testing with axe-core together with manual checks of keyboard operation, focus visibility, colour contrast, 200% text enlargement, 320-pixel reflow and reduced-motion behaviour.</p>
+                        <h3>Options and privacy</h3>
+                        <ul role="list">
+                            <li>Where JavaScript is available, the &ldquo;Accessibility&rdquo; button at the top of the page offers larger text, high contrast, underlined links and the option to stop animations. Your choices are stored on your own device &mdash; not in a cookie, and never sent anywhere &mdash; and apply to every page of this website.</li>
+                            <li>These two pages set no cookies and use no tracking, analytics or third-party content. Even the fonts are served from this website itself.</li>
+                        </ul>
+
+                        <h2><span class="prose__course" aria-hidden="true">03</span>Known limitations</h2>
+                        <ul role="list">
+                            <li>The website is currently available in English only.</li>
+                            <li>One gallery image is a computer-generated architectural visualisation rather than a photograph. It is labelled &ldquo;Architectural visualisation&rdquo; and its text description says so.</li>
+                        </ul>
+
+                        <h2><span class="prose__course" aria-hidden="true">04</span>Feedback and contact</h2>
+                        <p>If you have difficulty using any part of this website, or need information from it in a different format, please tell us and we will help:</p>
+                        <ul class="prose__contact" role="list">
+                            <li>
+                                <span class="prose__contact-label">Email</span>
+                                <a href="mailto:cohen.oded@gmail.com">cohen.oded@gmail.com</a>
+                            </li>
+                            <li>
+                                <span class="prose__contact-label">Phone</span>
+                                <a href="tel:+972523330911">+972-52-3330911</a>
+                            </li>
+                        </ul>
+                        <p>We aim to reply within 10 working days.</p>
+
+                        <h2><span class="prose__course" aria-hidden="true">05</span>How the website was assessed</h2>
+                        <p>This statement was prepared on 20 September 2026, and describes the website as it stands on that date, including its current design. It was assessed by self-evaluation: automated testing with axe-core across both pages, together with manual checks of keyboard operation, focus visibility, colour contrast, text enlargement, reflow at 320 pixels and reduced-motion behaviour. The website has not yet been tested with a screen reader or by people with disabilities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-page__foot">
+                <div class="container">
+                    <p>ORIA LEFKADA, Lefkada, Greece</p>
+                    <a class="button" href="index.html">Return to the villa</a>
+                </div>
             </div>
         </div>
+
     </main>
 
     <!-- Footer -->
