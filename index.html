@@ -37,6 +37,32 @@
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
 
+    <!--
+        EU FUNDING BANNER — required by the ESPA 2021-2027 publicity rules for the villa's grant
+        (Competitiveness 2021-2027). It must stay on the home page, visible WITHOUT SCROLLING on
+        phones as well as computers: do not move it further down the page. Each banner opens its
+        project poster, as the programme consultant instructed. Assets: images/espa-banner-*.webp/png,
+        docs/espa-poster-*.pdf.
+    -->
+    <aside class="funding-strip" aria-label="EU funding">
+        <div class="container funding-strip__inner">
+            <a class="funding-strip__link" href="docs/espa-poster-en.pdf" type="application/pdf" hreflang="en">
+                <picture>
+                    <source type="image/webp" srcset="images/espa-banner-en.webp">
+                    <img src="images/espa-banner-en.png" width="1401" height="177" decoding="async"
+                         alt="Co-funded by the European Union, Partnership Agreement 2021–2027, Competitiveness Programme 2021–2027. Project poster in English (PDF, 700 KB)">
+                </picture>
+            </a>
+            <a class="funding-strip__link" href="docs/espa-poster-el.pdf" type="application/pdf" hreflang="el" lang="el">
+                <picture>
+                    <source type="image/webp" srcset="images/espa-banner-el.webp">
+                    <img src="images/espa-banner-el.png" width="1401" height="146" decoding="async"
+                         alt="Με τη συγχρηματοδότηση της Ευρωπαϊκής Ένωσης, ΕΣΠΑ 2021-2027, Πρόγραμμα «Ανταγωνιστικότητα 2021-2027». Αφίσα του έργου στα ελληνικά (PDF, 1,9 MB)">
+                </picture>
+            </a>
+        </div>
+    </aside>
+
     <!-- Header -->
     <header class="site-header">
         <div class="container site-header__inner">
@@ -395,21 +421,6 @@
         </section>
 
     </main>
-
-    <!--
-        FUNDING BANNER SLOT — fill in once the programme's consultant supplies the assets.
-        1. Save the banner as images/funding-banner-en.jpg and the project PDF as docs/funding-en.pdf
-        2. Remove this comment wrapper (keep the <aside>), and write the banner's wording into the alt text.
-
-    <aside class="funding" aria-label="Programme funding">
-        <div class="container">
-            <a href="docs/funding-en.pdf">
-                <img src="images/funding-banner-en.jpg" width="600" height="120"
-                     alt="[Replace with the exact wording shown on the banner] (PDF)">
-            </a>
-        </div>
-    </aside>
-    -->
 
     <!-- Footer -->
     <footer class="site-footer">

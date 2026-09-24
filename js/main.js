@@ -20,6 +20,13 @@
             isOpen: function () { return toggle.getAttribute('aria-expanded') === 'true'; },
             open: function () {
                 disclosures.forEach(function (other) { if (other !== disclosure) { other.close(); } });
+                // The menu and panel drop from the header and size themselves to the space
+                // below it. On the home page the EU funding strip sits above the header, so
+                // measure where the header actually ends on screen right now.
+                var siteHeader = document.querySelector('.site-header');
+                if (siteHeader) {
+                    root.style.setProperty('--drop-top', Math.max(0, siteHeader.getBoundingClientRect().bottom) + 'px');
+                }
                 toggle.setAttribute('aria-expanded', 'true');
                 show(target);
             },
