@@ -11,7 +11,7 @@ js/main.js            mobile menu, accessibility options, gallery photo viewer
 fonts/                self-hosted Playfair Display + Inter (SIL Open Font License)
 images/               optimised photos (<name>-<width>.jpg/.webp, <name>-full.jpg)
 tools/                process_images.py — crops/resizes original photos into images/
-docs/                 accessibility audit report
+docs/                 accessibility audit report; EU funding posters (espa-poster-en/el.pdf)
 ```
 
 ## The design
@@ -45,12 +45,18 @@ checked by an auditor. When editing:
 1. **Registration number (legally required on the site).** In the footer of both `index.html` and
    `accessibility.html`, put the real ΜΗ.Τ.Ε. (or ΑΜΑ) number in the `<p class="legal-id" hidden>`
    line and delete the word `hidden`.
-2. **Funding banner.** `index.html` has a commented-out `<aside class="funding">` block just above the
-   footer. Add the banner image and PDF supplied by the programme consultant, uncomment it, and write the
-   banner's wording into the `alt`.
-3. **Better photos.** The current photos came through WhatsApp (compressed, mostly portrait). When the
+2. **Better photos.** The current photos came through WhatsApp (compressed, mostly portrait). When the
    originals arrive, put them in `images/`, edit the table in `tools/process_images.py`, run it, and
    update the `alt`, `width` and `height` attributes in `index.html`. Raw originals are not committed.
+
+## EU funding banner — don't move it
+
+The white strip at the top of the home page (`<aside class="funding-strip">`) is a condition of the
+villa's grant (ESPA 2021-2027, programme "Competitiveness 2021-2027"). The programme's rules require it
+on the home page and **visible without scrolling on any device**, and the consultant requires each banner
+to open its poster: `images/espa-banner-en.*` → `docs/espa-poster-en.pdf`, `images/espa-banner-el.*` →
+`docs/espa-poster-el.pdf`. Getting this wrong can cost up to 3% of the grant. If the consultant sends new
+posters, keep the same file names (and update the file sizes in the banners' `alt` text).
 
 ## Adding Greek later
 
